@@ -16,20 +16,20 @@ var setgrL = {
   b2: [rcol2, rmin, rmax]
 }
 var listcolor = []
-var baseurlImages='https://waterval-project.com/app/rainbowmaster/'
+var urlImages='https://waterval-project.com/app/rainbowmaster/'
 var ibg = []
-ibg[11] = 'https://waterval-project.com/app/rainbowmaster/11.gif'
-ibg[0] = 'https://waterval-project.com/app/rainbowmaster/random01.gif'
-ibg[1] = 'https://waterval-project.com/app/rainbowmaster/vivid04.gif'
-ibg[2] = 'https://waterval-project.com/app/rainbowmaster/dark01.gif'
-ibg[3] = 'https://waterval-project.com/app/rainbowmaster/bright01.gif'
-ibg[4] = 'https://waterval-project.com/app/rainbowmaster/grey01.gif'
-ibg[6] = 'https://waterval-project.com/app/rainbowmaster/red01.gif'
+ibg[11] = urlImages+'11.gif'
+ibg[0] =  urlImages+'random01.gif'
+ibg[1] =  urlImages+'vivid04.gif'
+ibg[2] = urlImages+'dark01.gif'
+ibg[3] = urlImages+'bright01.gif'
+ibg[4] = urlImages+'grey01.gif'
+ibg[6] = urlImages+'red01.gif'
 var sticker = []
 sticker[0] = 'https://upload.wikimedia.org/wikipedia/commons/3/31/Pentagonalicositetrahedronccw.gif'
 var borderi = []
-borderi[0] = 'border2.png'
-borderi[1] = 'https://www.w3schools.com/cssref/border.png'
+borderi[0] = urlImages+'border2.png'
+borderi[1] = urlImages+'border2.png'
 
 
 function otrocolorOne() {
