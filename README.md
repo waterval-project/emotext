@@ -1,5 +1,4 @@
 # emotext
-# emotext
 Hipertext lenguage for expressive paragraphs using emoticons 
 
 :-p Random
