@@ -16,7 +16,7 @@ var setgrL = {
   b2: [rcol2, rmin, rmax]
 }
 var listcolor = []
-var urlImages='https://waterval-project.com/app/rainbowmaster/'
+var urlImages='https://waterval-project.github.io/emotext/'
 var ibg = []
 ibg[11] = urlImages+'11.gif'
 ibg[0] =  urlImages+'random01.gif'
@@ -161,6 +161,7 @@ function Dump() {
 var bg
 var emojiUsed=[{n:1,p:0},{n:1,p:100}]
 function doBg(elem) {
+  if (typeof elem === 'undefined') { elem = ''; }
   bg = []
   var ibg2 = otrocolor(listcolor[emojiUsed[0].n][listcolor[emojiUsed[0].n].length - 1])
   var ibg1 = otrocolor(listcolor[emojiUsed[0].n][1])
@@ -176,7 +177,8 @@ function doBg(elem) {
   }
   }
   if(elem=='i'){
-   $('#accion').css('background-image', 'url(' + ibg[emojiUsed[0].n]+ ')')
+    $('#accion').css('background-image', 'url(' + ibg[emojiUsed[0].n]+ ')')
+   $('#accion').css('background-size', 'cover')
   }else{
     $('#accion').css('background-image', 'linear-gradient(' + ch+ ')')
   }
