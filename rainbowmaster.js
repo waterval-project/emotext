@@ -446,7 +446,9 @@ function showw() {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[0] + ');'
            if(a==0){
-             doBg('i')
+             imgg = ''
+             $('$accion').css('background-size','cover')
+             $('$accion').css('background-image','url(' + ibg[0] + ')')
            }
         }
         if (spaces[a][0] == ':-)i') {
