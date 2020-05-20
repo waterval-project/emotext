@@ -449,6 +449,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[0] + ')')
+             continue;
            }
         }
         if (spaces[a][0] == ':-)i') {
@@ -458,6 +459,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[1] + ')')
+              continue;
            }
         }
        if (spaces[a][0] == ':-(i') {
@@ -467,6 +469,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[2] + ')')
+             continue;
            }
         }
           if (spaces[a][0] == ':-Di') {
@@ -476,6 +479,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[3] + ')')
+                continue;
            }
         }
         if (spaces[a][0] == ':-|i') {
@@ -485,6 +489,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[4] + ')')
+              continue;
            }
         }
         if (spaces[a][0] == ':-*i') {
@@ -494,6 +499,7 @@ function showw() {
              imgg = ''
              $('#accion').css('background-size','cover')
              $('#accion').css('background-image','url(' + ibg[5] + ')')
+              continue;
            }
         }
         if (spaces[a][0] == ':-(.') {
@@ -520,7 +526,7 @@ function showw() {
    
         //-->class="bloque"
         //cad+=tag[0]+'<div class="'+tag[2]+'" style=" border-radius: 12px;padding:6px;text-align:center;'+imgg+'background-color:'+oc[0]+'; color:'+oc[1]+';width:700px;">'+spaces[a].join(' ') +'&nbsp;</div>'+tag[1]+'<div style= "margin:5px;"></div>';//splitext[a].split(' ')
-        cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
+        cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:3px;margin:16px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
 
         //cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;box-shadow: 7px 0px 5px 0px ' + oc[1] + ';display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:680px;">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
         //cad += tag[0] + '<button style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:680px;">' + thsline + '&nbsp;</button>' + tag[1] + '<br>';
