@@ -447,8 +447,8 @@ function showw() {
           imgg = 'background-size:cover; background-image:url(' + ibg[0] + ');'
            if(a==0){
              imgg = ''
-             $('$accion').css('background-size','cover')
-             $('$accion').css('background-image','url(' + ibg[0] + ')')
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[0] + ')')
            }
         }
         if (spaces[a][0] == ':-)i') {
