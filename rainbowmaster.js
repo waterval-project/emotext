@@ -454,22 +454,47 @@ function showw() {
         if (spaces[a][0] == ':-)i') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[1] + ');'
+            if(a==0){
+             imgg = ''
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[1] + ')')
+           }
         }
        if (spaces[a][0] == ':-(i') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[2] + ');'
+           if(a==0){
+             imgg = ''
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[2] + ')')
+           }
         }
           if (spaces[a][0] == ':-Di') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[3] + ');'
+              if(a==0){
+             imgg = ''
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[3] + ')')
+           }
         }
         if (spaces[a][0] == ':-|i') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[4] + ');'
+            if(a==0){
+             imgg = ''
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[4] + ')')
+           }
         }
         if (spaces[a][0] == ':-*i') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[5] + ');'
+            if(a==0){
+             imgg = ''
+             $('#accion').css('background-size','cover')
+             $('#accion').css('background-image','url(' + ibg[5] + ')')
+           }
         }
         if (spaces[a][0] == ':-(.') {
           spaces[a] = spaces[a].splice(1)
