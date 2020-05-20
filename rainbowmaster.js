@@ -160,7 +160,7 @@ function Dump() {
 
 var bg
 var emojiUsed=[{n:1,p:0},{n:1,p:100}]
-function doBg() {
+function doBg(elem) {
   bg = []
   var ibg2 = otrocolor(listcolor[emojiUsed[0].n][listcolor[emojiUsed[0].n].length - 1])
   var ibg1 = otrocolor(listcolor[emojiUsed[0].n][1])
@@ -175,8 +175,11 @@ function doBg() {
     ch+= ibg1[0]+' '+emojiUsed[a].p+'% ,'
   }
   }
-  $('#accion').css('background-image', 'linear-gradient(' + ch+ ')')
-
+  if(elem=='i'){
+   $('#accion').css('background-image', 'url(' + ibg[emojiUsed[0].n]+ ')')
+  }else{
+    $('#accion').css('background-image', 'linear-gradient(' + ch+ ')')
+  }
 }
 
 function doBg1() {
@@ -440,6 +443,9 @@ function showw() {
          if (spaces[a][0] == ':-pi') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[0] + ');'
+           if(a==0){
+             doBg('i')
+           }
         }
         if (spaces[a][0] == ':-)i') {
           spaces[a] = spaces[a].splice(1)
