@@ -315,37 +315,20 @@ function showw() {
         if (spaces[a][0] == ':-(:-)' || spaces[a][0] == ':(:)') {
           ccc = 0
           if (spaces[a].length == 1) {
-            emojiUsed[0].n=5
-            emojiUsed[1].n=5
-            nemoji = 5;
+            emojiUsed[0].n=20
+            emojiUsed[1].n=20
+            nemoji = 20;
             if (a == 0) {
               doBg();
             }
             continue;
           }
-          nemoji = 5;
+          nemoji = 20;
           spaces[a] = spaces[a].splice(1)
 
           //oc = otrocolorC3()
         }
-        if (spaces[a][0] == ':-*' || spaces[a][0] == ':*') {
-         oc = otrocolor(listcolor[6][ccc])
-          if (spaces[a].length == 1) {
-            emojiUsed[0].n=6
-            emojiUsed[1].n=6
-            ccc = 0
-            spaces[a] = spaces[a].splice(1)
-            nemoji = 6;
-            if (a == 0) {
-              doBg();
-            }
-            
-            continue;
-          } 
-          spaces[a] = spaces[a].splice(1)
-          
-          //oc = otrocolorC3()
-        }
+       
         if (spaces[a][0] == ':-o') {
           spaces[a] = spaces[a].splice(1)
           oc = otrocolorC3()
@@ -441,6 +424,60 @@ function showw() {
             continue;
           }
           spaces[a] = spaces[a].splice(1);
+        }
+         if (spaces[a][0] == ':-*' || spaces[a][0] == ':*') {
+         oc = otrocolor(listcolor[5][ccc])
+          if (spaces[a].length == 1) {
+            emojiUsed[0].n=5
+            emojiUsed[1].n=5
+            ccc = 0
+            spaces[a] = spaces[a].splice(1)
+            nemoji = 5;
+            if (a == 0) {
+              doBg();
+            }
+            
+            continue;
+          } 
+          spaces[a] = spaces[a].splice(1)
+          
+          //oc = otrocolorC3()
+        }
+         if (spaces[a][0] == ';-)' || spaces[a][0] == ':)') {
+         oc = otrocolor(listcolor[6][ccc])
+          if (spaces[a].length == 1) {
+            emojiUsed[0].n=6
+            emojiUsed[1].n=6
+            ccc = 0
+            spaces[a] = spaces[a].splice(1)
+            nemoji = 6;
+            if (a == 0) {
+              doBg();
+            }
+            
+            continue;
+          } 
+          spaces[a] = spaces[a].splice(1)
+          
+          //oc = otrocolorC3()
+        }
+         if (spaces[a][0] == ';-(' || spaces[a][0] == ':(') {
+         oc = otrocolor(listcolor[7][ccc])
+          if (spaces[a].length == 1) {
+            emojiUsed[0].n=7
+            emojiUsed[1].n=7
+            ccc = 0
+            spaces[a] = spaces[a].splice(1)
+            nemoji = 7;
+            if (a == 0) {
+              doBg();
+            }
+            
+            continue;
+          } 
+          spaces[a] = spaces[a].splice(1)
+          
+          //oc = otrocolorC3()
         }
          if (spaces[a][0] == ':-pi') {
           spaces[a] = spaces[a].splice(1)
@@ -568,14 +605,18 @@ var dataSesion = []
 var rcolor
 
 function colorea() {
-  /*
+   /*
   0 :-p random
   1 :-) vivid 
   2 :-( dark
   3 :-D bright  
   4 :-| grey  
-  5 :-(:-) darkToVivid
-  6 :-* red
+  
+  5 :-* red
+  6 ;-( blue 
+  7 ;-) green 
+  
+  20 :-(:-) darkToVivid
   */
 
   //RANDOM 0
@@ -686,8 +727,70 @@ function colorea() {
   }
   rcolor = new RainbowGradient(setgrL)
   listcolor[4] = rcolor.allColors(100)
+//RED 5 :-*
+  rcol1 = 165;
+  rcol2 = 255;
+  rmin = 0.7;
+  rmax = 1;
+  setgrL = {
+    ini: Math.random() * Math.PI,
+    n: 36,
+    frec: 2,
+    neutro: [1, 1],
+    r1: [rcol1, rmin, rmax],
+    g1: [5, rmin, rmax],
+    b1: [5, rmin, rmax],
+    r2: [rcol2, rmin, rmax],
+    g2: [2, rmin, rmax],
+    b2: [2, rmin, rmax]
+  }
+  rcolor = new RainbowGradient(setgrL)
+  listcolor[5] = rcolor.allColors(100)
 
-  //DARK TO BRIGHT 5 :-(:-)
+  //GREEN 6 ;-)
+  rcol1 = 165;
+  rcol2 = 255;
+  rmin = 0.7;
+  rmax = 1;
+  setgrL = {
+    ini: Math.random() * Math.PI,
+    n: 36,
+    frec: 2,
+    neutro: [1, 1],
+    r1: [5, rmin, rmax],
+    g1: [rcol1, rmin, rmax],
+    b1: [5, rmin, rmax],
+    r2: [2, rmin, rmax],
+    g2: [rccol2, rmin, rmax],
+    b2: [2, rmin, rmax]
+  }
+  rcolor = new RainbowGradient(setgrL)
+  listcolor[6] = rcolor.allColors(100)
+ 
+  //BLUE 7 ;-(
+  rcol1 = 165;
+  rcol2 = 255;
+  rmin = 0.7;
+  rmax = 1;
+  setgrL = {
+    ini: Math.random() * Math.PI,
+    n: 36,
+    frec: 2,
+    neutro: [1, 1],
+    r1: [5, rmin, rmax],
+    g1: [5, rmin, rmax],
+    b1: [rcol1, rmin, rmax],
+    r2: [2, rmin, rmax],
+    g2: [2, rmin, rmax],
+    b2: [rcol2, rmin, rmax]
+  }
+  rcolor = new RainbowGradient(setgrL)
+  listcolor[7] = rcolor.allColors(100)
+ 
+  
+    
+  
+  //DARK TO BRIGHT 20 :-(:-)
   rcol1 = 5;
   rcol2 = 255;
   rmin = 0.1;
@@ -705,27 +808,7 @@ function colorea() {
     b2: [rcol2, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
-  listcolor[5] = rcolor.allColors(100)
-
-  //RED 6 :-*
-  rcol1 = 195;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [5, rmin, rmax],
-    b1: [5, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [2, rmin, rmax],
-    b2: [2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
-  listcolor[6] = rcolor.allColors(100)
+  listcolor[20] = rcolor.allColors(100)
 
 }
 
