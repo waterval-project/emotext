@@ -761,7 +761,7 @@ function colorea() {
     g1: [rcol1, rmin, rmax],
     b1: [5, rmin, rmax],
     r2: [2, rmin, rmax],
-    g2: [rccol2, rmin, rmax],
+    g2: [rcol2, rmin, rmax],
     b2: [2, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
