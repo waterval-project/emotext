@@ -748,21 +748,21 @@ function colorea() {
   listcolor[5] = rcolor.allColors(100)
 
   //GREEN 6 ;-)
-  rcol1 = 200;
-  rcol2 = 255;
-  rmin = 0.5;
-  rmax = 1;
+  rcol1 = 150;
+  rcol2 = 185;
+  rmin = 0.4;
+  rmax = 0.8;
   setgrL = {
     ini: Math.random() * Math.PI,
     n: 36,
     frec: 2,
     neutro: [1, 1],
-    r1: [5, rmin, rmax],
+    r1: [0, rmin, rmax],
     g1: [rcol1, rmin, rmax],
-    b1: [5, rmin, rmax],
-    r2: [2, rmin, rmax],
+    b1: [0, rmin, rmax],
+    r2: [0, rmin, rmax],
     g2: [rcol2, rmin, rmax],
-    b2: [2, rmin, rmax]
+    b2: [0, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
   listcolor[6] = rcolor.allColors(100)
@@ -777,8 +777,8 @@ function colorea() {
     n: 36,
     frec: 2,
     neutro: [1, 1],
-    r1: [5, rmin, rmax],
-    g1: [5, rmin, rmax],
+    r1: [0, rmin, rmax],
+    g1: [0, rmin, rmax],
     b1: [rcol1, rmin, rmax],
     r2: [5, rmin, rmax],
     g2: [5, rmin, rmax],
