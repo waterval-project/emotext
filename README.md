@@ -1,7 +1,8 @@
 # emotext
 Hipertext lenguage for expressive paragraphs using emoticons 
 
-In the first line make a backgroud gradiente in the other lines make a paragraph colored
+In the first line make a backgroud gradient in the other lines make a paragraph colored
+If a line have only emoticon then next paragraphs are as this color style
 
 :-p Random
 
@@ -13,9 +14,14 @@ In the first line make a backgroud gradiente in the other lines make a paragraph
 
 :-| Grey
 
-:-(:-) Dark to Vivid
 
 :-* Red
+
+;-) Green
+
+;-( Blue
+
+:-(:-) Dark to Vivid
 
 :-o Surprise
 
