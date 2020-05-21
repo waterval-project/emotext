@@ -738,11 +738,11 @@ function colorea() {
     frec: 2,
     neutro: [1, 1],
     r1: [rcol1, rmin, rmax],
-    g1: [5, rmin, rmax],
-    b1: [5, rmin, rmax],
+    g1: [40, rmin, rmax],
+    b1: [40, rmin, rmax],
     r2: [rcol2, rmin, rmax],
-    g2: [2, rmin, rmax],
-    b2: [2, rmin, rmax]
+    g2: [0, rmin, rmax],
+    b2: [0, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
   listcolor[5] = rcolor.allColors(100)
@@ -757,9 +757,9 @@ function colorea() {
     n: 36,
     frec: 2,
     neutro: [1, 1],
-    r1: [0, rmin, rmax],
+    r1: [40, rmin, rmax],
     g1: [rcol1, rmin, rmax],
-    b1: [0, rmin, rmax],
+    b1: [40, rmin, rmax],
     r2: [0, rmin, rmax],
     g2: [rcol2, rmin, rmax],
     b2: [0, rmin, rmax]
@@ -777,11 +777,11 @@ function colorea() {
     n: 36,
     frec: 2,
     neutro: [1, 1],
-    r1: [5, rmin, rmax],
-    g1: [5, rmin, rmax],
+    r1: [40, rmin, rmax],
+    g1: [40, rmin, rmax],
     b1: [rcol1, rmin, rmax],
-    r2: [2, rmin, rmax],
-    g2: [2, rmin, rmax],
+    r2: [0, rmin, rmax],
+    g2: [0, rmin, rmax],
     b2: [rcol2, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
