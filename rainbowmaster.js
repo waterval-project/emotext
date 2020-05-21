@@ -728,7 +728,7 @@ function colorea() {
   rcolor = new RainbowGradient(setgrL)
   listcolor[4] = rcolor.allColors(100)
 //RED 5 :-*
-  rcol1 = 165;
+  rcol1 = 195;
   rcol2 = 255;
   rmin = 0.7;
   rmax = 1;
@@ -748,7 +748,7 @@ function colorea() {
   listcolor[5] = rcolor.allColors(100)
 
   //GREEN 6 ;-)
-  rcol1 = 165;
+  rcol1 = 195;
   rcol2 = 255;
   rmin = 0.7;
   rmax = 1;
@@ -768,7 +768,7 @@ function colorea() {
   listcolor[6] = rcolor.allColors(100)
  
   //BLUE 7 ;-(
-  rcol1 = 165;
+  rcol1 = 195;
   rcol2 = 255;
   rmin = 0.7;
   rmax = 1;
