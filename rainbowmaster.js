@@ -748,9 +748,9 @@ function colorea() {
   listcolor[5] = rcolor.allColors(100)
 
   //GREEN 6 ;-)
-  rcol1 = 195;
+  rcol1 = 200;
   rcol2 = 255;
-  rmin = 0.7;
+  rmin = 0.5;
   rmax = 1;
   setgrL = {
     ini: Math.random() * Math.PI,
