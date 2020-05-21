@@ -135,7 +135,7 @@
        for (var a = 0; a < n; a++) {
          this.r[0] = lerpe(this.r1[0], this.r2[0], moda * a)
          this.g[0] = lerpe(this.g1[0], this.g2[0], moda * a)
-         this.b[0] = lerpe(this.g1[0], this.g2[0], moda * a)
+         this.b[0] = lerpe(this.b1[0], this.b2[0], moda * a)
          this.RGB()
          this.listcolor[a] = this.color
        }
