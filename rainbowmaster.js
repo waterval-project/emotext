@@ -768,9 +768,9 @@ function colorea() {
   listcolor[6] = rcolor.allColors(100)
  
   //BLUE 7 ;-(
-  rcol1 = 195;
+  rcol1 = 225;
   rcol2 = 255;
-  rmin = 0.7;
+  rmin = 0.8;
   rmax = 1;
   setgrL = {
     ini: Math.random() * Math.PI,
@@ -780,8 +780,8 @@ function colorea() {
     r1: [5, rmin, rmax],
     g1: [5, rmin, rmax],
     b1: [rcol1, rmin, rmax],
-    r2: [2, rmin, rmax],
-    g2: [2, rmin, rmax],
+    r2: [5, rmin, rmax],
+    g2: [5, rmin, rmax],
     b2: [rcol2, rmin, rmax]
   }
   rcolor = new RainbowGradient(setgrL)
