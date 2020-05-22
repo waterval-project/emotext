@@ -635,7 +635,7 @@ function showw() {
     if(ccc>99){ccc=0}
   }
   //$('#lista').html(cad+'<br>'+fr)
-  $('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="font-size:-2;" >You can send me emails with rainbows from here</a>')
+  $('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:'+listcolor[nemoji][0]+'font-family:Helvetica;font-size:x-small;" >You can send me emails with rainbows from here</a>')
   //alert(cad)
 
 }
