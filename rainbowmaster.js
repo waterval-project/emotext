@@ -614,8 +614,14 @@ function showw() {
         if (esm && vacio != 0) {
           tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
-
-        thsline = linkify(spaces[a].join(' '), oc[1])
+        var cadjoin=spaces[a].join(' ')
+         if(cadjoin.indexOf(' .. ') > 0){ 
+             oc = otrocolorC3()
+          //imgg = 'border: 10px solid transparent;padding: 15px;border-image: url('+borderi[0]+') 30 stretch;background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
+        imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc[2] + ');'
+    
+         }
+                thsline = linkify(cadjoin, oc[1])
         thsline = emoti(thsline)
 
    
