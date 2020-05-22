@@ -905,14 +905,14 @@ function colorea() {
   listcolor[10] = rcolor.allColors(100)
   
  //BROWN 11 X(
- rcol1 = 100;
-  rcol2 = 150;
+ rcol1 = 50;
+  rcol2 = 100;
   rmin = 0.7;
   rmax = 1;
   setgrL = {
     ini: Math.random() * Math.PI,
     n: 36,
-    frec: 15,
+    frec: 3,
     neutro: [1, 1],
     r1: [rcol1+25, rmin, rmax],
     g1: [rcol2, rmin, rmax],
