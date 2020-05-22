@@ -619,10 +619,11 @@ function showw() {
             ccc+=1;
            if(ccc>99){ccc=0}
             oc = otrocolor(listcolor[nemoji][ccc])
-            ccc+=5;
-           if(ccc>99){ccc=0}
+            
            var oc1= otrocolor(listcolor[nemoji][ccc])
           imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc1[0] + ');'
+           ccc+=2;
+           if(ccc>99){ccc=0}
     
          }
          if(cadjoin.indexOf(' ., ') > 0){ 
