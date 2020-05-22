@@ -521,6 +521,21 @@ function showw() {
           } 
           spaces[a] = spaces[a].splice(1)
          } 
+        if (spaces[a][0] == 'x-(' || spaces[a][0] == 'X-(') {
+         oc = otrocolor(listcolor[11][ccc])
+          if (spaces[a].length == 1) {
+            emojiUsed[0].n=11
+            emojiUsed[1].n=11
+            ccc = 0
+            spaces[a] = spaces[a].splice(1)
+            nemoji = 11;
+            if (a == 0) {
+              doBg();
+            }            
+            continue;
+          } 
+          spaces[a] = spaces[a].splice(1)
+         } 
         
          if (spaces[a][0] == ':-pi') {
           spaces[a] = spaces[a].splice(1)
@@ -889,6 +904,26 @@ function colorea() {
   rcolor = new RainbowGradient(setgrL)
   listcolor[10] = rcolor.allColors(100)
   
+ //BROWN 11 X(
+ rcol1 = 100;
+  rcol2 = 150;
+  rmin = 0.7;
+  rmax = 1;
+  setgrL = {
+    ini: Math.random() * Math.PI,
+    n: 36,
+    frec: 15,
+    neutro: [1, 1],
+    r1: [rcol1+25, rmin, rmax],
+    g1: [rcol2, rmin, rmax],
+    b1: [0, rmin, rmax],
+    r2: [rcol1, rmin, rmax],
+    g2: [rcol2-25, rmin, rmax],
+    b2: [0, rmin, rmax]
+  }
+  rcolor = new RainbowGradient(setgrL)
+  listcolor[11] = rcolor.allColors(100)
+   
   
   //DARK TO BRIGHT 20 :-(:-)
   rcol1 = 5;
@@ -1078,8 +1113,8 @@ var newHtml = editor.html();
 })
 //thanks to https://ranksheet.com/solutions/kb-jQuery/2169_Easily-convert-text-emoticons-to-image-emoticons.aspx
 //thanks to https://github.com/watson/base64-emoji
-var emo1 = ["😇","😇","😇","😇","😊", "😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎"]
-var symbols1 = new Array("O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-("    );
+var emo1 = ["😇","😇","😇","😇","😊", "😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎","😠","😠","😠","😠"]
+var symbols1 = new Array("O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-(","X-(","x-(","X(","x(" );
 
 var emo = new Array('smile.png', 'smile.png', 'smile-big.png', 'smile-big.png', 'sad.png', 'sad.png', 'crying.png', 'tongue.png', 'tongue.png', 'tongue.png', 'tongue.png', 'shock.png', 'shock.png', 'angry.png', 'confused.png', 'confused.png', "wink.png", "wink.png", "embarrassed.png", "disapointed.png", "sick.png", "shut-mouth.png", "sleepy.png", "eyeroll.png", "thinking.png", "thinking.png", "thinking.png", "lying.png", "lying.png", "glasses-nerdy.png", "teeth.png");
 var symbols = new Array(":)", ":-)", ":D", ":-D", ":(", ":-(", ":'(", ":P", ":p", ":-p", ":-P", ":o", "8-0", ":@", ":s", ":S", ";)", ";-)", ":$", ":|", "+o(", ":-#", "|-)", "8-)", ":\\", "*-)", ":-\\", "(lying)", ":--)", "8-|", "8o|");
