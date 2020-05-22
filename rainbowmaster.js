@@ -617,7 +617,7 @@ function showw() {
         var cadjoin=spaces[a].join(' ')
          if(cadjoin.indexOf(' .. ') > 0){ 
             oc = otrocolor(listcolor[nemoji][ccc])
-            ccc++;
+            ccc+=2;
            if(ccc>99){ccc=0}
            var oc1= otrocolor(listcolor[nemoji][ccc])
           imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc1[0] + ');'
