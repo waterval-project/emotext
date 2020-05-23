@@ -1,4 +1,6 @@
 var nemoji = 1
+var nemoji1 = 1
+var nemoji0 = 1
 var rcol1 = 255
 var rcol2 = 255
 var rmin = 0.1
@@ -181,6 +183,7 @@ function doBg(elem) {
    $('#accion').css('background-size', 'cover')
   }else{
     $('#accion').css('background-image', 'linear-gradient(' + ch+ ')')
+    nemoji0=emojiUsed[0].n
   }
 }
 
@@ -325,7 +328,7 @@ function showw() {
           }
           nemoji = 20;
           spaces[a] = spaces[a].splice(1)
-
+          nemoji1=20
           //oc = otrocolorC3()
         }
        
@@ -345,6 +348,8 @@ function showw() {
           vacio=0
         } 
        
+////////////////////////// EMOJI LINES COLOR
+        var expresion=0;
        
         if (spaces[a][0] == ':-)') {
           oc = otrocolor(listcolor[1][ccc])
@@ -354,6 +359,7 @@ function showw() {
             emojiUsed[1].n=1
             ccc = 0;
             nemoji = 1;
+            nemoji1=1
             if (a == 0) {
               doBg();
             }
@@ -361,8 +367,8 @@ function showw() {
             continue;
           }
            spaces[a] = spaces[a].splice(1);
-          
-          
+           nemoji1=1
+           expresion=1   
         }
         if (spaces[a][0] == ':-(') {
           oc = otrocolor(listcolor[2][ccc])
@@ -372,6 +378,7 @@ function showw() {
             emojiUsed[1].n=2
             ccc = 0;
             nemoji = 2;
+            nemoji1=2
             if (a == 0) {
               doBg();
             } 
@@ -379,7 +386,8 @@ function showw() {
             continue;
           }
          spaces[a] = spaces[a].splice(1);
-
+         nemoji1=2
+         expresion=1 
         }
         if (spaces[a][0] == ':-p') {
           oc = otrocolor(listcolor[0][ccc])
@@ -387,12 +395,15 @@ function showw() {
             emojiUsed[0].n=0
             emojiUsed[1].n=0
             nemoji = 0;
+            nemoji1=0
             if (a == 0) {
               doBg();
             }
             continue;
           }
           spaces[a] = spaces[a].splice(1);
+          nemoji1=0
+         expresion=1 
         }
         if (spaces[a][0] == ':-|') {
           oc = otrocolor(listcolor[4][ccc])
@@ -402,6 +413,7 @@ function showw() {
             emojiUsed[1].n=4
             ccc = 0;
             nemoji = 4;
+            nemoji1=4
             if (a == 0) {
               doBg();
             }
@@ -409,6 +421,8 @@ function showw() {
             continue;
           }
           spaces[a] = spaces[a].splice(1);
+          nemoji1=4
+         expresion=1 
         }
         if (spaces[a][0] == ':-D') {
           oc = otrocolor(listcolor[3][ccc])
@@ -418,12 +432,15 @@ function showw() {
             emojiUsed[1].n=3
             ccc = 0;
             nemoji = 3;
+            nemoji1=3
             if (a == 0) {
               doBg();
             }
             continue;
           }
           spaces[a] = spaces[a].splice(1);
+          nemoji1=3
+         expresion=1 
         }
          if (spaces[a][0] == ':-*' || spaces[a][0] == ':*') {
          oc = otrocolor(listcolor[5][ccc])
@@ -433,6 +450,7 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 5;
+            nemoji1=5
             if (a == 0) {
               doBg();
             }
@@ -440,7 +458,8 @@ function showw() {
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
-          
+          nemoji1=5
+         expresion=1 
           //oc = otrocolorC3()
         }
          if (spaces[a][0] == ';-)' || spaces[a][0] == ':)') {
@@ -451,14 +470,17 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 6;
+            nemoji1=6
             if (a == 0) {
               doBg();
+
             }
             
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
-          
+          nemoji1=6
+         expresion=1 
           //oc = otrocolorC3()
         }
          if (spaces[a][0] == ';-(' || spaces[a][0] == ':(') {
@@ -469,12 +491,15 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 7;
+            nemoji1=7
             if (a == 0) {
               doBg();
             }            
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
+          nemoji1=7
+         expresion=1 
          }
          if (spaces[a][0] == 'o:-)' || spaces[a][0] == 'o:)') {
          oc = otrocolor(listcolor[8][ccc])
@@ -484,12 +509,15 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 8;
+            nemoji1=8
             if (a == 0) {
               doBg();
             }            
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
+          nemoji1=8
+         expresion=1 
          } 
          if (spaces[a][0] == '8-)' || spaces[a][0] == '8-(') {
          oc = otrocolor(listcolor[9][ccc])
@@ -499,12 +527,15 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 9;
+            nemoji1=9
             if (a == 0) {
               doBg();
             }            
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
+          nemoji1=9
+         expresion=1 
          } 
          if (spaces[a][0] == 'xD' || spaces[a][0] == 'XD') {
          oc = otrocolor(listcolor[10][ccc])
@@ -514,12 +545,15 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 10;
+            nemoji1=10
             if (a == 0) {
               doBg();
             }            
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
+          nemoji1=10
+         expresion=1 
          } 
         if (spaces[a][0] == 'x-(' || spaces[a][0] == 'X-(') {
          oc = otrocolor(listcolor[11][ccc])
@@ -529,14 +563,18 @@ function showw() {
             ccc = 0
             spaces[a] = spaces[a].splice(1)
             nemoji = 11;
+            nemoji1=11
             if (a == 0) {
               doBg();
             }            
             continue;
           } 
           spaces[a] = spaces[a].splice(1)
+          nemoji1=11
+         expresion=1 
          } 
-        
+//////////////////////////////////   IMAGES GROUND EMOJI
+
          if (spaces[a][0] == ':-pi') {
           spaces[a] = spaces[a].splice(1)
           imgg = 'background-size:cover; background-image:url(' + ibg[0] + ');'
@@ -597,6 +635,7 @@ function showw() {
               continue;
            }
         }
+///////////////////////////   EXTRANGERS
         if (spaces[a][0] == ':-(.') {
           spaces[a] = spaces[a].splice(1)
           oc = ['transparent', bg[1]]
@@ -608,6 +647,8 @@ function showw() {
           imgg = 'font-weight:700; text-align:left;'
         }
 
+/////////////////////////  BREAKS LINES
+
         var esm = esmayuscula(spaces[a].join(' '))
         var tag = ['', '', '']
 
@@ -615,23 +656,46 @@ function showw() {
           //-->tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
         var cadjoin=spaces[a].join(' ')
-         if(cadjoin.indexOf(' ..') > 0 || cadjoin.substring(0,2)=='..'){ 
+
+         if(cadjoin.substring(0,2)=='..'){ 
+            var tni=nemoji0
+            if(expresion==1){tni=nemoji1}
             ccc+=1;
            if(ccc>99){ccc=0}
-            oc = otrocolor(listcolor[nemoji][ccc])
+            oc = otrocolor(listcolor[tni][ccc])
              ccc+=5;
            if(ccc>99){ccc=0}
-           var oc1= otrocolor(listcolor[nemoji][ccc])
+           var oc1= otrocolor(listcolor[tni][ccc])
           imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc1[0] + ');'
            ccc+=2;
            if(ccc>99){ccc=0}
            if(cadjoin.substring(0,2)=='..'){cadjoin=cadjoin.substring(3) }
     
          }
-         if(cadjoin.indexOf(' .,') > 0 || cadjoin.substring(0,2)=='.,' ){ 
+         if(cadjoin.substring(0,2)=='.o'){ 
+          var tni=nemoji0
+            if(expresion==1){tni=nemoji1}
+            ccc+=1;
+           if(ccc>99){ccc=0}
+            oc = otrocolor(listcolor[tni][ccc])
+             ccc+=5;
+           if(ccc>99){ccc=0}
+           var oc1= otrocolor(listcolor[tni][ccc])
+          imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc1[0] + ');'
+           ccc+=2;
+           if(ccc>99){ccc=0}
+           cadjoin=cadjoin.substring(3) 
+    
+         }
+         if(cadjoin.substring(0,2)=='.,' ){ 
              oc = otrocolorC3()
            imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc[2] + ');'
            if(cadjoin.substring(0,2)=='.,'){cadjoin=cadjoin.substring(3) }
+         }
+         if(cadjoin.substring(0,2)=='.O' ){ 
+             oc = otrocolorC3()
+           imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
+           cadjoin=cadjoin.substring(3)
          }
                 thsline = linkify(cadjoin, oc[1])
         thsline = emoti(thsline)
