@@ -1,6 +1,8 @@
 var nemoji = 1
 var nemoji1 = 1
 var nemoji0 = 1
+var intenso=1
+
 var rcol1 = 255
 var rcol2 = 255
 var rmin = 0.1
@@ -247,7 +249,9 @@ function showw() {
  } 
  //console.log(spaces[0][0]+' '+anchodiv)
  $('#accion').css('width',(anchodiv)+'px')
+ intenso=1
   for (var a = 0; a < spaces.length; a++) {
+    
     if (spaces[a][0] != null) {
       var ht = spaces[a][0].substring(0, 4)
       //alert(ht+'_')
@@ -405,9 +409,9 @@ function showw() {
           nemoji1=0
          expresion=1 
         }
-        if (spaces[a][0] == ':-|') {
+        if (spaces[a][0] == ':-|' ||  spaces[a][0] == ':-||') {
+          if(spaces[a][0] == ':-||'){intenso=2; }
           oc = otrocolor(listcolor[4][ccc])
-
           if (spaces[a].length == 1) {
             emojiUsed[0].n=4
             emojiUsed[1].n=4
@@ -415,6 +419,7 @@ function showw() {
             nemoji = 4;
             nemoji1=4
             if (a == 0) {
+
               doBg();
             }
             
@@ -573,6 +578,24 @@ function showw() {
           nemoji1=11
          expresion=1 
          } 
+          if (spaces[a][0] == '|-)' || spaces[a][0] == '|)') {
+         oc = otrocolor(listcolor[12][ccc])
+          if (spaces[a].length == 1) {
+            emojiUsed[0].n=12
+            emojiUsed[1].n=12
+            ccc = 0
+            spaces[a] = spaces[a].splice(1)
+            nemoji = 12;
+            nemoji1=12
+            if (a == 0) {
+              doBg();
+            }            
+            continue;
+          } 
+          spaces[a] = spaces[a].splice(1)
+          nemoji1=12
+         expresion=1 
+         } 
 //////////////////////////////////   IMAGES GROUND EMOJI
 
          if (spaces[a][0] == ':-pi') {
@@ -697,7 +720,7 @@ function showw() {
            imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
            cadjoin=cadjoin.substring(3)
          }
-                thsline = linkify(cadjoin, oc[1])
+        thsline = linkify(cadjoin, oc[1])
         thsline = emoti(thsline)
 
    
@@ -759,9 +782,12 @@ function colorea() {
   20 :-(:-) darkToVivid
   */
 
-  //RANDOM 0
-
-  listcolor[0] = []
+  //RANDOM :-p  0 
+  paleta[0].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[0].prop)
+  listcolor[0] = rcolor.allColors(100)
+  
+  /*listcolor[0] = []
   for (var a = 0; a < 100; a++) {
     var c = []
     c[0] = Math.floor((Math.random() * 256));
@@ -769,243 +795,68 @@ function colorea() {
     c[2] = Math.floor((Math.random() * 256));
     listcolor[0][a] = c
   }
-  //VIVID 1
-  rcol1 = 255;
-  rcol2 = 255;
-  rmin = 0.1;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
-  listcolor[1] = rcolor.allColors(100)
-  /*
-  listcolor[1] = []
-  for (var a = 0; a < 100; a++) {
-    rcolor.RGB()
-    listcolor[1][a] = rcolor.color
-  }
-  */
-  //DARK :-( 2
-  rcol1 = 90;
-  rcol2 = 90;
-  rmin = 0.1;
-  rmax = 0.5;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
-  listcolor[2] = rcolor.allColors(100)
-  /*
-  listcolor[2] = []
-  for (var a = 0; a < 100; a++) {
-    rcolor.RGB()
-    listcolor[2][a] = rcolor.color
-  }
-  */
-  //BRIGHT 3 :-D  XD
-  rcol1 = 255;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
-  listcolor[3] = rcolor.allColors(100)
-  /*
-  listcolor[3] = []
-  for (var a = 0; a < 100; a++) {
-    rcolor.RGB()
-    listcolor[3][a] = rcolor.color
-  }
   */
 
-  //GREY 4 :-|
-  rcol1 = 185;
-  rcol2 = 185;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [0.3, 0.3],
-    r1: [rcol1, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+
+
+  //VIVID :-) 1
+  paleta[1].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[1].prop)
+  listcolor[1] = rcolor.allColors(100)
+  
+  //DARK :-( 2
+  paleta[2].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[2].prop)
+  listcolor[2] = rcolor.allColors(100)
+
+  //BRIGHT 3 :-D  
+  paleta[3].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[3].prop)
+  listcolor[3] = rcolor.allColors(100)
+  
+  //GREY 4 :-| :-||
+  //if(intenso==2){}
+  paleta[4].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[4].prop)
   listcolor[4] = rcolor.allColors(100)
 //RED 5 :-*
-  rcol1 = 195;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [40, rmin, rmax],
-    b1: [40, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [0, rmin, rmax],
-    b2: [0, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[5].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[5].prop)
   listcolor[5] = rcolor.allColors(100)
 
   //GREEN 6 ;-)
-  rcol1 = 50;
-  rcol2 = 255;
-  rmin = 0.4;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [40, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [40, rmin, rmax],
-    r2: [0, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [0, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[6].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[6].prop)
   listcolor[6] = rcolor.allColors(100)
  
   //BLUE 7 ;-(
- rcol1 = 50;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [40, rmin, rmax],
-    g1: [40, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [0, rmin, rmax],
-    g2: [0, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[7].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[7].prop)
   listcolor[7] = rcolor.allColors(100)
  
   //CYAN 8 o:-)
- rcol1 = 150;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [20, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [0, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[8].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[9].prop)
   listcolor[8] = rcolor.allColors(100)
 //MAGENTA 9   8-)
- rcol1 = 150;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [20, rmin, rmax],
-    b1: [rcol1, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [0, rmin, rmax],
-    b2: [rcol2, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[9].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[9].prop)
   listcolor[9] = rcolor.allColors(100)  
  
   //YELLOW 10 xD
- rcol1 = 150;
-  rcol2 = 255;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [rcol1, rmin, rmax],
-    g1: [rcol1, rmin, rmax],
-    b1: [10, rmin, rmax],
-    r2: [rcol2, rmin, rmax],
-    g2: [rcol2, rmin, rmax],
-    b2: [0, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[10].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[10].prop)
   listcolor[10] = rcolor.allColors(100)
   
  //BROWN 11 X(
- rcol1 = 50;
-  rcol2 = 100;
-  rmin = 0.7;
-  rmax = 1;
-  setgrL = {
-    ini: Math.random() * Math.PI,
-    n: 36,
-    frec: 3,
-    neutro: [1, 1],
-    r1: [rcol1+15, rmin, rmax],
-    g1: [rcol2, rmin, rmax],
-    b1: [0, rmin, rmax],
-    r2: [rcol1, rmin, rmax],
-    g2: [rcol2-15, rmin, rmax],
-    b2: [0, rmin, rmax]
-  }
-  rcolor = new RainbowGradient(setgrL)
+  paleta[11].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[12].prop)
   listcolor[11] = rcolor.allColors(100)
-   
+  
+  //DUN 12 |-) |)
+  paleta[12].prop.ini=Math.random() * Math.PI
+  rcolor = new RainbowGradient(paleta[12].prop)
+  listcolor[12] = rcolor.allColors(100)
   
   //DARK TO BRIGHT 20 :-(:-)
   rcol1 = 5;
@@ -1195,11 +1046,9 @@ var newHtml = editor.html();
 })
 //thanks to https://ranksheet.com/solutions/kb-jQuery/2169_Easily-convert-text-emoticons-to-image-emoticons.aspx
 //thanks to https://github.com/watson/base64-emoji
-var emo1 = ["😇","😇","😇","😇","😊", "😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎","😠","😠","😠","😠","<br>","<br>","<br>"]
-var symbols1 = new Array("O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-(","X-(","x-(","X(","x("," .."," .,"," .:" );
+var emo1 = ["😇","😇","😇","😇","😊", "😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎","😠","😠","😠","😠","😴","😴","<br>"]
+var symbols1 = new Array("O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-(","X-(","x-(","X(","x(","|-)","|)"," .." );
 
-var emo = new Array('smile.png', 'smile.png', 'smile-big.png', 'smile-big.png', 'sad.png', 'sad.png', 'crying.png', 'tongue.png', 'tongue.png', 'tongue.png', 'tongue.png', 'shock.png', 'shock.png', 'angry.png', 'confused.png', 'confused.png', "wink.png", "wink.png", "embarrassed.png", "disapointed.png", "sick.png", "shut-mouth.png", "sleepy.png", "eyeroll.png", "thinking.png", "thinking.png", "thinking.png", "lying.png", "lying.png", "glasses-nerdy.png", "teeth.png");
-var symbols = new Array(":)", ":-)", ":D", ":-D", ":(", ":-(", ":'(", ":P", ":p", ":-p", ":-P", ":o", "8-0", ":@", ":s", ":S", ";)", ";-)", ":$", ":|", "+o(", ":-#", "|-)", "8-)", ":\\", "*-)", ":-\\", "(lying)", ":--)", "8-|", "8o|");
 
 function emoti(chain) {
   var htm = chain;
