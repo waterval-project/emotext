@@ -612,7 +612,7 @@ function showw() {
         var tag = ['', '', '']
 
         if (esm && vacio != 0) {
-          tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
+          //-->tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
         var cadjoin=spaces[a].join(' ')
          if(cadjoin.indexOf(' ..') > 0 || cadjoin.substring(0,2)=='..'){ 
