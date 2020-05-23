@@ -1,5 +1,5 @@
 # emotext
-Hipertext lenguage for expressive paragraphs using emoticons 
+Hypertext lenguage for expressive paragraphs using emoticons 
 
 In the first line make a backgroud gradient in the other lines make a paragraph colored
 If a line have only emoticon then next paragraphs are as this color style
