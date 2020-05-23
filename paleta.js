@@ -1,5 +1,5 @@
-var paleta=[]
-paleta[0]={ name: 'random', icon:':-p', prop:{
+var inipaleta=[]
+inipaleta[0]={ name: 'random', icon:':-p', prop:{
     ini: 0,
     n: 36,
     frec: 15,
@@ -11,7 +11,7 @@ paleta[0]={ name: 'random', icon:':-p', prop:{
     g2: [255, 0.1,1],
     b2: [255, 0.1,1]
   }}   
-paleta[1]={ name: 'vivid', icon:':-)', prop:{
+inipaleta[1]={ name: 'vivid', icon:':-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -23,7 +23,7 @@ paleta[1]={ name: 'vivid', icon:':-)', prop:{
     g2: [255, 0.1,1],
     b2: [255, 0.1,1]
   }}   
-paleta[2]={ name: 'dark', icon:':-(', prop:{
+inipaleta[2]={ name: 'dark', icon:':-(', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -35,7 +35,7 @@ paleta[2]={ name: 'dark', icon:':-(', prop:{
     g2: [90, 0.1,0.5],
     b2: [90, 0.1,0.5]
   }}
-paleta[3]={ name: 'bright', icon:':-D', prop:{
+inipaleta[3]={ name: 'bright', icon:':-D', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -47,7 +47,7 @@ paleta[3]={ name: 'bright', icon:':-D', prop:{
     g2: [255, 0.7,1],
     b2: [255, 0.7,1]
   }}   
-paleta[4]={ name: 'grey', icon:':-)', prop:{
+inipaleta[4]={ name: 'grey', icon:':-|', prop:{
     ini: 0,
     n: 50,
     frec: 5,
@@ -59,7 +59,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [255, 0.5,1],
     b2: [255, 0.5,1]
   }}   
-  paleta[5]={ name: 'red', icon:':-*', prop:{
+  inipaleta[5]={ name: 'red', icon:':-*', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -71,7 +71,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [0, 0.4,1],
     b2: [0, 0.4,1]
   }}
-   paleta[6]={ name: 'green', icon:';-)', prop:{
+   inipaleta[6]={ name: 'green', icon:';-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -83,7 +83,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [255, 0.4,1],
     b2: [0, 0.4,1]
   }}
-  paleta[6]={ name: 'green', icon:';-)', prop:{
+  inipaleta[6]={ name: 'green', icon:';-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -95,7 +95,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [255, 0.4,1],
     b2: [0, 0.4,1]
   }}
-    paleta[7]={ name: 'blue', icon:';-(', prop:{
+    inipaleta[7]={ name: 'blue', icon:';-(', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -107,7 +107,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [0, 0.7,1],
     b2: [255, 0.7,1]
   }}
-   paleta[7]={ name: 'blue', icon:';-(', prop:{
+   inipaleta[7]={ name: 'blue', icon:';-(', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -119,7 +119,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [0, 0.7,1],
     b2: [255, 0.7,1]
   }}
-  paleta[8]={ name: 'cyan', icon:'o:-)', prop:{
+  inipaleta[8]={ name: 'cyan', icon:'o:-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -131,7 +131,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [255, 0.7,1],
     b2: [255, 0.7,1]
   }}
-  paleta[9]={ name: 'magenta', icon:'8-)', prop:{
+  inipaleta[9]={ name: 'magenta', icon:'8-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,
@@ -143,7 +143,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [0, 0.7,1],
     b2: [255, 0.7,1]
   }}
-  paleta[10]={ name: 'yellow', icon:'xD', prop:{ 
+  inipaleta[10]={ name: 'yellow', icon:'xD', prop:{ 
     ini: Math.random() * Math.PI,
     n: 36,
     frec: 2,
@@ -155,7 +155,7 @@ paleta[4]={ name: 'grey', icon:':-)', prop:{
     g2: [266, 0.7, 1],
     b2: [0, 0.7, 1]
   }}
-paleta[11]={ name: 'brown', icon:'x(', prop:{ 
+inipaleta[11]={ name: 'brown', icon:'x(', prop:{ 
     ini: 0,
     n: 36,
     frec: 3,
@@ -167,7 +167,7 @@ paleta[11]={ name: 'brown', icon:'x(', prop:{
     g2: [85, 0.7, 1],
     b2: [0, 0.7, 1]
   }}
- paleta[12]={ name: 'dun', icon:'|-|', prop:{
+ inipaleta[12]={ name: 'dun', icon:'|-|', prop:{
     ini: 0,
     n: 36,
     frec: 2,

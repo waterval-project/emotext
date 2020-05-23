@@ -197,11 +197,13 @@ function doBg1() {
   bg[1] = ibg1[1]
   bg[2] = ibg2[0]
   $('#accion').css('background-image', 'linear-gradient(' + bg[0] + ',' + bg[2] + ')')
-}  
-  
+}
+
+var paleta=[]
+
 function showw() {
   $('#logo').hide()
-  colorea()
+  //paleta = jQuery.extend(true, {}, inipaleta);
   //$('#bconvert').html('Edit')
   //dataSesion= $('#accion').text().split("\n")
   //var r = $('#accion').text().replace('\n', '<br>');
@@ -237,6 +239,7 @@ function showw() {
   //cad+='<div style="z-index:0;background-image:url('+sticker[0]+');background-repeat:no-repeat;background-position:center center;position:absolute;top:0px;left:0px;width:100%;height:100%;></div>'
   //cad+='<img src="'+sticker[0]+'" style="opacity:50%;position:absolute;top:0px;left:0px;"></div>'
   //cad+='<img src="'+sticker[0]+'" style="opacity:50%;position: relative; left: 100px;top: -200px;margin-bottom: -200px;"></div>'
+ 
   var contf = 0
   var ccc = 0
    var anchodiv=750;// 
@@ -245,8 +248,22 @@ function showw() {
  if(spaces[0][0].substring(0,2)=='..'){
      anchodiv=500
       spaces[0][0] = spaces[0][0].substring(2);
-     
- } 
+ }  
+
+paleta = JSON.parse(JSON.stringify(inipaleta));
+var twopal=spaces[0][0].split('_')
+if(twopal.length>1){
+  var np1 = paleta.findIndex(x => x.icon === twopal[0])
+  if(np1==-1){np1=1}
+  var np2=paleta.findIndex(x => x.icon === twopal[1])
+   if(np2==-1){np2=2}
+    paleta[np1].prop.r2=inipaleta[np2].prop.r2
+    paleta[np1].prop.g2=inipaleta[np2].prop.g2
+    paleta[np1].prop.b2=inipaleta[np2].prop.b2
+   spaces[0][0]= spaces[0][0]=twopal[0]
+}
+  colorea()
+  
  //console.log(spaces[0][0]+' '+anchodiv)
  $('#accion').css('width',(anchodiv)+'px')
  intenso=1
@@ -979,6 +996,7 @@ function demo(n){
 
 
 $(document).ready(function() {
+  paleta = JSON.parse(JSON.stringify(inipaleta));
   colorea()
   dataSesion = $('#texto').text().split("\n")
   liness()
@@ -1046,8 +1064,8 @@ var newHtml = editor.html();
 })
 //thanks to https://ranksheet.com/solutions/kb-jQuery/2169_Easily-convert-text-emoticons-to-image-emoticons.aspx
 //thanks to https://github.com/watson/base64-emoji
-var emo1 = ["😇","😇","😇","😇","😊", "😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎","😠","😠","😠","😠","😴","😴","<br>"]
-var symbols1 = new Array("O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-(","X-(","x-(","X(","x(","|-)","|)"," .." );
+    var emo1 = ["😇","😇","😇",  "😇","😊","😊", "😃", "😃", "🙁", "🙁", "😳", "😳", "😉", "😉", "😐", "😐", "😜", "😜", "😍", "😍","😆","😆","😆","😆","😢","😢","😎","😎","😎","😎","😎","😎","😠","😠","😠","😠","😴","😴","<br>"]
+var symbols1 = ["O:)","o:)","o:-)","O:-)",":)", ":-)", ":D", ":-D", ":(", ":-(", ":o", ":-o", ";)", ";-)", ":|", ":-|", ":p", ":-p", ":*", ":-*", "xD", "XD", "x-D","X-D", ";(",";-(","8-|","8-)","8-(","B-|","B-)","B-(","X-(","x-(","X(","x(","|-)","|)"," .." ];
 
 
 function emoti(chain) {
