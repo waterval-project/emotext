@@ -972,7 +972,7 @@ function demo(n){
        //alert(0)
        $('#texto').val('')
        var t=''
-       t+=':-(:-) - Go dark to vivid colors   - :-(:-)  - I like do colors with emoticons - :-) -  :-(:-)   -    Thank you  -   -  -   - '
+       t+=':-(:-) - Go dark to vivid colors   - :-(_:-)  - I like do colors with emoticons -  -   -    -   -    Thank you  -   -  -   - '
        t=t.replace(/ - /g,"\n")
        $('#texto').val(t)
    }  
