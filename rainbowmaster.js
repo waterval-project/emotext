@@ -1,7 +1,7 @@
 var nemoji = 1
 var nemoji1 = 1
 var nemoji0 = 1
-var intenso=1
+
 
 var rcol1 = 255
 var rcol2 = 255
@@ -251,22 +251,65 @@ function showw() {
  }  
 
 paleta = JSON.parse(JSON.stringify(inipaleta));
-var twopal=spaces[0][0].split('_')
+
+
+var morespaces=spaces[0].slice(1)
+var twopal=[]
+var intenso1=5
+var intenso2=10
+var frecc=1
+var ncoll=spaces.length
+if(morespaces.length>=1){
+  //if(morespaces[0]!= null || morespaces[0]!=''){
+  if(morespaces[0]!=''){
+    //frecc=eval(toString(morespaces[0]))
+    frecc=parseInt(morespaces[0])
+ }
+  //if(typeof morespaces[1] === 'undefined') {
+  if(morespaces[1]!= null){
+   //ncoll=eval(toString(morespaces[1]))
+   ncoll=parseInt(morespaces[1])
+  }
+  
+  spaces[0]=[spaces[0][0]]
+  
+}
+
+
+twopal=spaces[0][0].split('_')
+
+if(twopal.length==1){
+  var np1 = paleta.findIndex(x => x.icon === twopal[0])
+  if(np1==-1){np1=1}
+   paleta[np1].prop.n=ncoll
+   paleta[np1].prop.frec=frecc
+   //paleta[np1].prop.frec=parseInt(spaces.length/6)2
+   
+}
 if(twopal.length>1){
+
   var np1 = paleta.findIndex(x => x.icon === twopal[0])
   if(np1==-1){np1=1}
   var np2=paleta.findIndex(x => x.icon === twopal[1])
    if(np2==-1){np2=2}
+    /*paleta[np1].prop.n=spaces.length
+    paleta[np2].prop.n=spaces.length
+    paleta[np1].prop.frec=frecc
+    paleta[np2].prop.frec=frecc
+    */
+    paleta[np1].prop.n=ncoll
+    paleta[np1].prop.frec=frecc
     paleta[np1].prop.r2=inipaleta[np2].prop.r2
     paleta[np1].prop.g2=inipaleta[np2].prop.g2
     paleta[np1].prop.b2=inipaleta[np2].prop.b2
-   spaces[0][0]= spaces[0][0]=twopal[0]
+   spaces[0][0]=twopal[0]
 }
+
   colorea()
   
  //console.log(spaces[0][0]+' '+anchodiv)
  $('#accion').css('width',(anchodiv)+'px')
- intenso=1
+
   for (var a = 0; a < spaces.length; a++) {
     
     if (spaces[a][0] != null) {
@@ -427,7 +470,7 @@ if(twopal.length>1){
          expresion=1 
         }
         if (spaces[a][0] == ':-|' ||  spaces[a][0] == ':-||') {
-          if(spaces[a][0] == ':-||'){intenso=2; }
+          
           oc = otrocolor(listcolor[4][ccc])
           if (spaces[a].length == 1) {
             emojiUsed[0].n=4
@@ -687,7 +730,7 @@ if(twopal.length>1){
           imgg = 'font-weight:700; text-align:left;'
         }
 
-/////////////////////////  BREAKS LINES
+/////////////////////////  BOLD
 
         var esm = esmayuscula(spaces[a].join(' '))
         var tag = ['', '', '']
@@ -695,6 +738,10 @@ if(twopal.length>1){
         if (esm && vacio != 0) {
           //-->tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
+
+/////////////////////////  GRADIENTS
+
+
         var cadjoin=spaces[a].join(' ')
 
          if(cadjoin.substring(0,2)=='..'){ 
@@ -703,7 +750,7 @@ if(twopal.length>1){
             ccc+=1;
            if(ccc>99){ccc=0}
             oc = otrocolor(listcolor[tni][ccc])
-             ccc+=5;
+             ccc+=4;
            if(ccc>99){ccc=0}
            var oc1= otrocolor(listcolor[tni][ccc])
           imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc1[0] + ');'
@@ -712,13 +759,29 @@ if(twopal.length>1){
            if(cadjoin.substring(0,2)=='..'){cadjoin=cadjoin.substring(3) }
     
          }
+
+         if(cadjoin.substring(0,2)=='.-'){ 
+            var tni=nemoji0
+            if(expresion==1){tni=nemoji1}
+            ccc+=1;
+           if(ccc>99){ccc=0}
+            oc = otrocolor(listcolor[tni][ccc])
+             ccc+=4;
+           if(ccc>99){ccc=0}
+           var oc1= otrocolor(listcolor[tni][ccc])
+          imgg = 'background-image:linear-gradient(90deg,' + oc[0] + ',' + oc1[0] + '); text-align:left;'
+           ccc+=2;
+           if(ccc>99){ccc=0}
+           cadjoin=cadjoin.substring(3) 
+    
+         }
          if(cadjoin.substring(0,2)=='.o'){ 
           var tni=nemoji0
             if(expresion==1){tni=nemoji1}
             ccc+=1;
            if(ccc>99){ccc=0}
             oc = otrocolor(listcolor[tni][ccc])
-             ccc+=5;
+             ccc+=4;
            if(ccc>99){ccc=0}
            var oc1= otrocolor(listcolor[tni][ccc])
           imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc1[0] + ');'
@@ -732,6 +795,11 @@ if(twopal.length>1){
            imgg = 'background-image:linear-gradient(' + oc[0] + ',' + oc[2] + ');'
            if(cadjoin.substring(0,2)=='.,'){cadjoin=cadjoin.substring(3) }
          }
+         if(cadjoin.substring(0,2)=='._' ){ 
+             oc = otrocolorC3()
+           imgg = 'background-image:linear-gradient(90deg, ' + oc[0] + ',' + oc[2] + '); text-align:left;'
+           cadjoin=cadjoin.substring(3)
+         }
          if(cadjoin.substring(0,2)=='.O' ){ 
              oc = otrocolorC3()
            imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
@@ -743,8 +811,19 @@ if(twopal.length>1){
    
         //-->class="bloque"
         //cad+=tag[0]+'<div class="'+tag[2]+'" style=" border-radius: 12px;padding:6px;text-align:center;'+imgg+'background-color:'+oc[0]+'; color:'+oc[1]+';width:700px;">'+spaces[a].join(' ') +'&nbsp;</div>'+tag[1]+'<div style= "margin:5px;"></div>';//splitext[a].split(' ')
-        cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
+       cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
+       /* -->
+       //cad += tag[0] + '<div style="display:table; border-spacing: 5px; ' + tag[2] + 'border-radius: 12px;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';"><div style=" display: table-row; width: auto; clear: both;">'
+      
+      cad += tag[0] + '<div style="display:table; border-spacing: 5px; width:'+anchodivpercent+';">'
+      cad+='<div style=" display: table-row; width: auto; clear: both;">'
 
+         cad +='<div style="float: left; text-align:center; padding: 5px; ' + tag[2] + ' display: table-column; ">' +'' + '&nbsp;</div>'
+     
+         cad +='<div style="float: left; text-align:center;  padding: 5px;display: table-column; border-radius: 12px;padding:8px 28px;margin:5px; ' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + '; ">' + thsline + '&nbsp;</div>'
+       
+       cad+='</div></div>' + tag[1] + '<br>';
+       */
         //cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;box-shadow: 7px 0px 5px 0px ' + oc[1] + ';display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:680px;">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
         //cad += tag[0] + '<button style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:680px;">' + thsline + '&nbsp;</button>' + tag[1] + '<br>';
 
@@ -800,11 +879,11 @@ function colorea() {
   */
 
   //RANDOM :-p  0 
-  paleta[0].prop.ini=Math.random() * Math.PI
+ /* paleta[0].prop.ini=Math.random() * Math.PI
   rcolor = new RainbowGradient(paleta[0].prop)
   listcolor[0] = rcolor.allColors(100)
-  
-  /*listcolor[0] = []
+ */ 
+  listcolor[0] = []
   for (var a = 0; a < 100; a++) {
     var c = []
     c[0] = Math.floor((Math.random() * 256));
@@ -812,8 +891,7 @@ function colorea() {
     c[2] = Math.floor((Math.random() * 256));
     listcolor[0][a] = c
   }
-  */
-
+  
 
 
   //VIVID :-) 1
