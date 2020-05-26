@@ -4,6 +4,14 @@ Hypertext lenguage for expressive paragraphs using emoticons
 In the first line make a backgroud gradient in the other lines make a paragraph colored
 If a line have only emoticon then next paragraphs are as this color style
 
+ON THE FIRST LINE
+
+:-(_:-) Dark to Vivid
+
+.. Short paragraph at the first line
+
+ON THE FIRST LINE AND AT THE BEGINNING OF A LINE
+
 :-p Random
 
 :-) Vivid
@@ -21,7 +29,34 @@ If a line have only emoticon then next paragraphs are as this color style
 
 ;-( Blue
 
-:-(:-) Dark to Vivid
+
+o:-) Cyan
+
+8-) Magenta
+
+xD Yellow
+
+
+x-( Brown
+
+|-) Dun
+
+
+AT THE BEGINNING OF THE LINE
+
+0 Frameless
+
+.. Harmonic linear gradient 
+
+., Random linear gradient 
+
+.o Armonic radial gradient 
+
+.O Random radial gradient  
+
+.- Harmonic left to right linear gradient
+
+._  Random left to right linear gradient
 
 :-o Surprise
 
@@ -35,6 +70,29 @@ If a line have only emoticon then next paragraphs are as this color style
 
 :-|i Grey with animated image
 
+
+IN THE PARAGRAPH
+
+ ..  (space + two points) New line 
+ 
+ 
+
+
+EXAMPLES
+
+____________________
+:-D
+;-) .. Green linear gradient ..Hello Word
+0
+______________________
+:-)
+;-) .o Green radial gradient
+
+Bye
+___________________________
+
+
+
 ihttp://......etc.jpg image
 
 -http://......etc  link
@@ -42,7 +100,8 @@ ihttp://......etc.jpg image
 ahttp://..... etc image and link
 
 
-.. short paragraph
+
+
 
 
 RAINBOWMASTER with Emotext
