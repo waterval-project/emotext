@@ -116,9 +116,9 @@ function esmayuscula(strings) {
     //if (j >= n - 8 && n > 6) {
     var ss = strings.replace(/ /g, '')
     var ns = strings.split(' ')
-    var nch= strings.length-ns
-    //if (j >= ns.length && ss.length > 0) {
-    if (j >= nch && ss.length > 0) {
+    //var nch= strings.length-ns
+    if (j >= ns.length && ss.length > 0) {
+    //if (j >= nch && ss.length > 0) {
         return true
     } else {
         return false
@@ -722,16 +722,22 @@ function showw() {
                     }
                 }
                 ///////////////////////////   EXTRANGERS
-                if (spaces[a][0] == ':-(.') {
+                if (spaces[a][0] == '.') {
                     spaces[a] = spaces[a].splice(1)
                     oc = ['transparent', bg[1]]
                     imgg = 'font-weight:700;'
                 }
-                if (spaces[a][0] == ':-(.,') {
+                if (spaces[a][0] == '-') {
                     spaces[a] = spaces[a].splice(1)
                     oc = ['transparent', bg[1]]
                     imgg = 'font-weight:700; text-align:left;'
                 }
+                if (spaces[a][0] == '_') {
+                    spaces[a] = spaces[a].splice(1)
+                    oc = ['transparent', bg[1]]
+                    imgg = 'font-weight:700; text-align:right;'
+                }
+
 
                 /////////////////////////  BOLD
 
