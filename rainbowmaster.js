@@ -116,7 +116,9 @@ function esmayuscula(strings) {
     //if (j >= n - 8 && n > 6) {
     var ss = strings.replace(/ /g, '')
     var ns = strings.split(' ')
-    if (j >= ns.length && ss.length > 0) {
+    var nch= strings.length-ns
+    //if (j >= ns.length && ss.length > 0) {
+    if (j >= nch && ss.length > 0) {
         return true
     } else {
         return false
@@ -737,7 +739,7 @@ function showw() {
                 var tag = ['', '', '']
 
                 if (esm && vacio != 0) {
-                    //-->tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
+                    tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
                 }
 
                 /////////////////////////  GRADIENTS
