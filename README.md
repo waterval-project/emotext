@@ -1,4 +1,4 @@
-# emotext
+# Emotext
 Hypertext lenguage for expressive paragraphs using emoticons 
 
 In the first line make a backgroud gradient in the other lines make a paragraph colored
@@ -70,11 +70,16 @@ AT THE BEGINNING OF THE LINE
 
 :-|i Grey with animated image
 
+ihttp://......etc.jpg image
+
+-http://......etc  link
+
+ahttp://..... etc image and link
 
 IN THE PARAGRAPH
 
  ..  (space + two points) New line 
- 
+http://..  or www...     link
  
 
 
@@ -93,11 +98,6 @@ ___________________________
 
 
 
-ihttp://......etc.jpg image
-
--http://......etc  link
-
-ahttp://..... etc image and link
 
 
 
