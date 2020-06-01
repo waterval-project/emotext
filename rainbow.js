@@ -40,21 +40,21 @@
        var r = mape(Math.sin(this.T1), -1, 1, this.r[0] * this.r[1], this.r[0] * this.r[2])
        //var r = Math.sin(this.T1)*this.r[0]
        //var dr = (this.r[0] - r) * 1
-       this.R = r; // - dr
+       this.R =parseInt(r); // - dr
        //this.T1 += TWO_PI / this.mR
        this.T1 += this.modColor
 
        var g = mape(Math.sin(this.T2), -1, 1, this.g[0] * this.g[1], this.g[0] * this.g[2])
        //var g=Math.sin(this.T2)*this.g[0]
        //var dg = (this.g[0] - g) * 1
-       this.G = g; //- dg
+       this.G = parseInt(g); //- dg
        //this.T2 += TWO_PI / this.mG
        this.T2 += this.modColor
 
        var b = mape(Math.sin(this.T3), -1, 1, this.b[0] * this.b[1], this.b[0] * this.b[2])
        //var b =Math.sin(this.T3)*this.b[0]
        //var db = (this.b[0] - b) * 1
-       this.B = b; //- db
+       this.B = parseInt(b); //- db
        //this.T3 += TWO_PI / this.mB
        this.T3 += this.modColor
 
@@ -133,9 +133,9 @@
        var moda = 1 / n
        var mmcont = 0
        for (var a = 0; a < n; a++) {
-         this.r[0] = lerpe(this.r1[0], this.r2[0], moda * a)
-         this.g[0] = lerpe(this.g1[0], this.g2[0], moda * a)
-         this.b[0] = lerpe(this.b1[0], this.b2[0], moda * a)
+         this.r[0] = parseInt(lerpe(this.r1[0], this.r2[0], moda * a))
+         this.g[0] = parseInt(lerpe(this.g1[0], this.g2[0], moda * a))
+         this.b[0] = parseInt(lerpe(this.b1[0], this.b2[0], moda * a))
          this.RGB()
          this.listcolor[a] = this.color
        }
@@ -147,21 +147,21 @@
        var r = mape(Math.sin(this.T1), -1, 1, this.r[0] * this.r[1], this.r[0] * this.r[2])
        //var r = Math.sin(this.T1)*this.r[0]
        //var dr = (this.r[0] - r) * 1
-       this.R = r; // - dr
+       this.R = parseInt(r); // - dr
        //this.T1 += TWO_PI / this.mR
        this.T1 += this.modColor
 
        var g = mape(Math.sin(this.T2), -1, 1, this.g[0] * this.g[1], this.g[0] * this.g[2])
        //var g=Math.sin(this.T2)*this.g[0]
        //var dg = (this.g[0] - g) * 1
-       this.G = g; //- dg
+       this.G = parseInt(g); //- dg
        //this.T2 += TWO_PI / this.mG
        this.T2 += this.modColor
 
        var b = mape(Math.sin(this.T3), -1, 1, this.b[0] * this.b[1], this.b[0] * this.b[2])
        //var b =Math.sin(this.T3)*this.b[0]
        //var db = (this.b[0] - b) * 1
-       this.B = b; //- db
+       this.B = parseInt(b); //- db
        //this.T3 += TWO_PI / this.mB
        this.T3 += this.modColor
 

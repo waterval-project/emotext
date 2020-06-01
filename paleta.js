@@ -83,18 +83,6 @@ inipaleta[4]={ name: 'grey', icon:':-|', prop:{
     g2: [255, 0.4,1],
     b2: [0, 0.4,1]
   }}
-  inipaleta[6]={ name: 'green', icon:';-)', prop:{
-    ini: 0,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [40, 0.4,1],
-    g1: [50, 0.4,1],
-    b1: [40, 0.4,1],
-    r2: [0, 0.4,1],
-    g2: [255, 0.4,1],
-    b2: [0, 0.4,1]
-  }}
     inipaleta[7]={ name: 'blue', icon:';-(', prop:{
     ini: 0,
     n: 36,
@@ -107,19 +95,7 @@ inipaleta[4]={ name: 'grey', icon:':-|', prop:{
     g2: [0, 0.7,1],
     b2: [255, 0.7,1]
   }}
-   inipaleta[7]={ name: 'blue', icon:';-(', prop:{
-    ini: 0,
-    n: 36,
-    frec: 2,
-    neutro: [1, 1],
-    r1: [40, 0.7,1],
-    g1: [40, 0.7,1],
-    b1: [150, 0.7,1],
-    r2: [0, 0.7,1],
-    g2: [0, 0.7,1],
-    b2: [255, 0.7,1]
-  }}
-  inipaleta[8]={ name: 'cyan', icon:'o:-)', prop:{
+ inipaleta[8]={ name: 'cyan', icon:'o:-)', prop:{
     ini: 0,
     n: 36,
     frec: 2,

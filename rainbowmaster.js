@@ -116,9 +116,7 @@ function esmayuscula(strings) {
     //if (j >= n - 8 && n > 6) {
     var ss = strings.replace(/ /g, '')
     var ns = strings.split(' ')
-    //var nch= strings.length-ns
     if (j >= ns.length && ss.length > 0) {
-    //if (j >= nch && ss.length > 0) {
         return true
     } else {
         return false
@@ -202,6 +200,63 @@ function doBg1() {
     $('#accion').css('background-image', 'linear-gradient(' + bg[0] + ',' + bg[2] + ')')
 }
 
+
+function iniRepeatedChar(s) {
+    // var fi=string.substring(0,1)
+    var fi = s.charAt(0)
+    for (var i = 0; i < s.length; i++) {
+        var c = s.charAt(i);
+        if (c != fi) {
+            return i;
+        }
+    }
+    return null;
+}
+
+function aumentaD(repini, np1) {
+    var nparts = 4
+    if (paleta[np1].prop.r1[1] < 1) {
+        paleta[np1].prop.r1[1] += ((1 - paleta[np1].prop.r1[1]) / nparts) * repini
+    }
+    if (paleta[np1].prop.g1[1] < 1) {
+        paleta[np1].prop.g1[1] += ((1 - paleta[np1].prop.g1[1]) / nparts) * repini
+    }
+    if (paleta[np1].prop.b1[1] < 1) {
+        paleta[np1].prop.b1[1] += ((1 - paleta[np1].prop.b1[1]) / nparts) * repini
+    }
+    if (paleta[np1].prop.r2[1] < 1) {
+        paleta[np1].prop.r2[1] += ((1 - paleta[np1].prop.r2[1]) / nparts) * repini
+    }
+    if (paleta[np1].prop.g2[1] < 1) {
+        paleta[np1].prop.g2[1] += ((1 - paleta[np1].prop.g2[1]) / nparts) * repini
+    }
+    if (paleta[np1].prop.b2[1] < 1) {
+        paleta[np1].prop.b2[1] += ((1 - paleta[np1].prop.b2[1]) / nparts) * repini
+    }
+
+    if (paleta[np1].prop.r1[0] < 255) {
+        paleta[np1].prop.r1[0] += ((255 - paleta[np1].prop.b1[0]) / nparts) * repini
+    }
+    if (paleta[np1].prop.g1[0] < 255) {
+        paleta[np1].prop.g1[0] += ((255 - paleta[np1].prop.b1[0]) / nparts) * repini
+    }
+    if (paleta[np1].prop.b1[0] < 255) {
+        paleta[np1].prop.b1[0] += ((255 - paleta[np1].prop.b1[0]) / nparts) * repini
+    }
+    if (paleta[np1].prop.r2[0] < 255) {
+        paleta[np1].prop.r2[0] += ((255 - paleta[np1].prop.r2[0]) / nparts) * repini
+    }
+    if (paleta[np1].prop.g2[0] < 255) {
+        paleta[np1].prop.g2[0] += ((255 - paleta[np1].prop.g2[0]) / nparts) * repini
+    }
+    if (paleta[np1].prop.b2[0] < 255) {
+        paleta[np1].prop.b2[0] += ((255 - paleta[np1].prop.b2[0]) / nparts) * repini
+    }
+  
+}
+
+
+
 var paleta = []
 
 function showw() {
@@ -253,6 +308,14 @@ function showw() {
         spaces[0][0] = spaces[0][0].substring(2);
     }
 
+    var repini = 0
+    var inichar = spaces[0][0].substring(0, 1)
+    if (inichar == ')' || inichar == 'D' || inichar == '|' || inichar == ')') {
+        repini = iniRepeatedChar(spaces[0][0])
+        spaces[0][0] = spaces[0][0].substring(repini);
+    }
+
+
     paleta = JSON.parse(JSON.stringify(inipaleta));
 
 
@@ -286,7 +349,12 @@ function showw() {
         if (np1 == -1) { np1 = 1 }
         paleta[np1].prop.n = ncoll
         paleta[np1].prop.frec = frecc
-        //paleta[np1].prop.frec=parseInt(spaces.length/6)2
+        if (repini > 0) {
+            if (inichar == 'D') {
+                aumentaD(repini, np1)
+            }
+        }
+       
 
     }
     if (twopal.length > 1) {
@@ -309,7 +377,7 @@ function showw() {
     }
 
     colorea()
-    
+
     //console.log(spaces[0][0]+' '+anchodiv)
     $('#accion').css('width', (anchodiv) + 'px')
 
@@ -738,7 +806,6 @@ function showw() {
                     imgg = 'font-weight:700; text-align:right;'
                 }
 
-
                 /////////////////////////  BOLD
 
                 var esm = esmayuscula(spaces[a].join(' '))
@@ -847,7 +914,7 @@ function showw() {
     //$('#lista').html(cad+'<br>'+fr)
     $('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:' + listcolor[nemoji][0] + 'font-family:Helvetica;font-size:x-small;" >Emotext</a>')
     //alert(cad)
-   
+
 }
 
 $.fn.multiline = function(text) {
@@ -993,7 +1060,7 @@ function startt() {
             timer = duration;
             $('#info').hide()
             clearInterval(interval);
-            writing=false
+            writing = false
         }
     }, 1000);
 }
@@ -1011,7 +1078,7 @@ function copyToClip(str) {
     document.removeEventListener("copy", listener);
     $('#info').show()
     startt()
-   // writing = false;
+    // writing = false;
 };
 
 var brn = "\n"
@@ -1084,52 +1151,52 @@ function demo(n) {
     }
 }
 
-function visual(){
-        /*var s1 = $('#accion').parent().html();
-        var jHtmlObject = jQuery(s1);
-        var editor = jQuery("<p>").append(jHtmlObject);
-        editor.find("#texto").remove();
-        editor.find("#logo").remove();
-        editor.find("#info").remove();
-        editor.find("#dconvert").remove();
-        s = editor.html()
-        writing = true;
-        var newHtml = editor.html();
-        // var s2=  s1.find("#texto").remove()
-        //var s1=  s2.find("#info").remove()
-        copyToClip(s)
-        */
-        //$('#accion').attr('contentEditable','false');
-        //$('#accion').select()
-        //document.execCommand('copy')
-        $('#accion').hide()
-        $('#texto').show();
-        liness();
+function visual() {
+    /*var s1 = $('#accion').parent().html();
+    var jHtmlObject = jQuery(s1);
+    var editor = jQuery("<p>").append(jHtmlObject);
+    editor.find("#texto").remove();
+    editor.find("#logo").remove();
+    editor.find("#info").remove();
+    editor.find("#dconvert").remove();
+    s = editor.html()
+    writing = true;
+    var newHtml = editor.html();
+    // var s2=  s1.find("#texto").remove()
+    //var s1=  s2.find("#info").remove()
+    copyToClip(s)
+    */
+    //$('#accion').attr('contentEditable','false');
+    //$('#accion').select()
+    //document.execCommand('copy')
+    $('#accion').hide()
+    $('#texto').show();
+    liness();
 
-        //mode *= -1
+    //mode *= -1
 }
 
-function visual02(){
-        var s1 = $('#accion').parent().html();
-        var jHtmlObject = jQuery(s1);
-        var editor = jQuery("<p>").append(jHtmlObject);
-        editor.find("#texto").remove();
-        editor.find("#logo").remove();
-        editor.find("#info").remove();
-        editor.find("#dconvert").remove();
-        s = editor.html()
-        //writing = true;
-        var newHtml = editor.html();
-        // var s2=  s1.find("#texto").remove()
-        //var s1=  s2.find("#info").remove()
-        copyToClip(s)
-        //$('#accion').attr('contentEditable','false');
-        //$('#accion').select()
-        //document.execCommand('copy')
-        //$('#accion').hide()
-        //$('#texto').show();
-        //liness();
-        //mode *= -1
+function visual02() {
+    var s1 = $('#accion').parent().html();
+    var jHtmlObject = jQuery(s1);
+    var editor = jQuery("<p>").append(jHtmlObject);
+    editor.find("#texto").remove();
+    editor.find("#logo").remove();
+    editor.find("#info").remove();
+    editor.find("#dconvert").remove();
+    s = editor.html()
+    //writing = true;
+    var newHtml = editor.html();
+    // var s2=  s1.find("#texto").remove()
+    //var s1=  s2.find("#info").remove()
+    copyToClip(s)
+    //$('#accion').attr('contentEditable','false');
+    //$('#accion').select()
+    //document.execCommand('copy')
+    //$('#accion').hide()
+    //$('#texto').show();
+    //liness();
+    //mode *= -1
 }
 
 
@@ -1151,23 +1218,23 @@ $(document).ready(function() {
                 if (currentMousePos.x > parseInt(120) && !writing) {
                     container.hide();
                     //mode *= -1
-                    $('#accion').show() 
+                    $('#accion').show()
 
-                    showw() 
+                    showw()
                     visual02()
-                   //writing = false
+                    //writing = false
 
 
                 }
-           }
+            }
         }
 
     });
-   
+
 
     $("#accion").on("click", function() {
-       writing=true
-       visual()
+        writing = true
+        visual()
 
     });
 
