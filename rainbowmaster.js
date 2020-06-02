@@ -214,7 +214,7 @@ function iniRepeatedChar(s) {
 }
 
 function aumentaD(repini, np1) {
-    var nparts = 4
+    var nparts = 5
     if (paleta[np1].prop.r1[1] < 1) {
         paleta[np1].prop.r1[1] += ((1 - paleta[np1].prop.r1[1]) / nparts) * repini
     }
