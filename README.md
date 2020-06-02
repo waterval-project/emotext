@@ -4,11 +4,18 @@ Hypertext lenguage for expressive paragraphs using emoticons
 In the first line make a backgroud gradient in the other lines make a paragraph colored
 If a line have only emoticon then next paragraphs are as this color style
 
-ON THE FIRST LINE
+ON THE FIRST LINE   WidthSymbol or/and brightness or/and emoticon or/and+space  phase +space numOfColors(default 100)
 
 :-(_:-) Dark to Vivid
 
-.. Short paragraph at the first line
+.. Short paragraph (WidthSymbol)
+
+DDDDD  brighter and brighter. Five D is White
+
+Example:
+
+..DD:-) 2 10
+
 
 ON THE FIRST LINE AND AT THE BEGINNING OF A LINE
 
