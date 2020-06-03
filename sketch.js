@@ -30,6 +30,8 @@ var rcol1 = 155;
 
 function setup() {
   cnv = createCanvas(wi, he);
+         // cnv.id('texturecanvas')
+        cnv.parent('textureCanvas');
           cnv.style('z-index', '-1');
           cnv.position(lefttop.left, lefttop.top);
   imageData = createImage(wi, he);
