@@ -63,6 +63,15 @@ function otrocolor(rgb) {
     return r
 
 }
+function contrastext(rgb) {
+    const brightness = Math.round(((parseInt(rgb[0]) * 299) +
+        (parseInt(rgb[1]) * 587) +
+        (parseInt(rgb[2]) * 114)) / 1000);
+    
+    var r= (brightness > 125) ? 'black' : 'white';
+     return r
+
+}
 
 
 function linkify(inputText, c) {
@@ -258,9 +267,10 @@ function aumentaD(repini, np1) {
 
 
 var paleta = []
-
+var foto=[]
 function showw() {
     $('#logo').hide()
+    
     //paleta = jQuery.extend(true, {}, inipaleta);
     //$('#bconvert').html('Edit')
     //dataSesion= $('#accion').text().split("\n")
@@ -380,9 +390,17 @@ function showw() {
 
     //console.log(spaces[0][0]+' '+anchodiv)
     $('#accion').css('width', (anchodiv) + 'px')
-
+    foto=[]
     for (var a = 0; a < spaces.length; a++) {
-
+           var tni = nemoji0
+                if (expresion == 1) { tni = nemoji1 }
+                    ccc += 1;
+                    if (ccc > 99) { ccc = 0 }
+                    var tco1 = listcolor[tni][ccc]
+                    ccc += 4;
+                    if (ccc > 99) { ccc = 0 }
+                    var tco2 =listcolor[tni][ccc]
+                drawtexture(tco1,tco2)
         if (spaces[a][0] != null) {
             var ht = spaces[a][0].substring(0, 4)
             //alert(ht+'_')
@@ -881,8 +899,19 @@ function showw() {
                     imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
                     cadjoin = cadjoin.substring(3)
                 }
+              
+           /////////
+                  if (cadjoin.substring(0, 2) == '.t') {
+                      oc[1]=contrastext([myvivid.r1[0],myvivid.g1[0],myvivid.b1[0]])
+                      imgg = 'background-size:cover; background-image:url(' + foto[a] + ');'
+                      cadjoin = cadjoin.substring(3)
+                }
+              
                 thsline = linkify(cadjoin, oc[1])
                 thsline = emoti(thsline)
+              
+                //oc[1]=contrastext([myvivid.r1[0],myvivid.g1[0],myvivid.b1[0]])
+                //imgg = 'background-size:cover; background-image:url(' + foto[a] + ');'
 
 
                 //-->class="bloque"
@@ -893,7 +922,6 @@ function showw() {
       
       cad += tag[0] + '<div style="display:table; border-spacing: 5px; width:'+anchodivpercent+';">'
       cad+='<div style=" display: table-row; width: auto; clear: both;">'
-
          cad +='<div style="float: left; text-align:center; padding: 5px; ' + tag[2] + ' display: table-column; ">' +'' + '&nbsp;</div>'
      
          cad +='<div style="float: left; text-align:center;  padding: 5px;display: table-column; border-radius: 12px;padding:8px 28px;margin:5px; ' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + '; ">' + thsline + '&nbsp;</div>'
@@ -1285,3 +1313,5 @@ function replaceAll(find, replace, str) {
 function escapeRegExp(str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 };
+
+
