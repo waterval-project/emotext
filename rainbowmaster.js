@@ -1212,6 +1212,7 @@ function visual02() {
     editor.find("#logo").remove();
     editor.find("#info").remove();
     editor.find("#dconvert").remove();
+    editor.find("#textureCanvas").remove();
     s = editor.html()
     //writing = true;
     var newHtml = editor.html();
