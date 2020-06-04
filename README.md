@@ -65,6 +65,8 @@ AT THE BEGINNING OF THE LINE
 
 ._  Random left to right linear gradient
 
+.t Random texture
+
 :-o Surprise
 
 :-pi Random with animated image
