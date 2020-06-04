@@ -409,13 +409,14 @@ function showw() {
   $('#accion').css('width', (anchodiv) + 'px')
   foto = []
   for (var a = 0; a < spaces.length; a++) {
-    
+
     if (spaces[a][0] != null) {
-      var cadjoin = spaces[a].join(' ')
-      
-      
-       
-      
+
+
+
+
+
+
       var ht = spaces[a][0].substring(0, 4)
       //alert(ht+'_')
 
@@ -473,55 +474,82 @@ function showw() {
           fr += '<div style="margin-top:20px;height:20px;"></div>'
         }
       } else {
-        
+
         //var ht=spaces[a][0].substring(0,4)
         //alert(ht+'_')
         var oc = otrocolor(listcolor[nemoji][ccc])
         var imgg = ''
         var tag = ['', '', '']
-        
-      
-        
-//////////////// TEXTURES
-      var tni=nemoji 
-      var numet=1, tco1=[9,9,9], tco2=[0,0,0]
-      if (cadjoin.substring(0, 2) == '.t') {
-         tni = nemoji0
-        if (expresion == 1) {
-          tni = nemoji1
+
+
+
+        ///////////////////  TEXTURES
+        // spaces[a][0].substring(0, 4)
+        var tni = nemoji
+        var modo = 'v'
+        var numet = 1,
+          tco1 = [9, 9, 9],
+          tco2 = [0, 0, 0]
+        var isTexture=false
+        if (spaces[a][0].substring(0, 2) == '.t') {
+          tni = nemoji0
+          if (expresion == 1) {
+            tni = nemoji1
+          }
+          ccc += 1;
+          if (ccc > 99) {
+            ccc = 0
+          }
+          tco2 = listcolor[tni][ccc]
+          numet = 1
+          modo = 'h'
+          if (spaces[a][0] != '.t') {
+            numet = parseInt(spaces[a][0].substring(2))
+
+          }
+          isTexture=true
         }
-        ccc += 1;
-        if (ccc > 99) {
-          ccc = 0
+        if (spaces[a][0].substring(0, 2) == '-t') {
+          tni = nemoji0
+          if (expresion == 1) {
+            tni = nemoji1
+          }
+          ccc += 1;
+          if (ccc > 99) {
+            ccc = 0
+          }
+          tco2 = listcolor[tni][ccc]
+          numet = 1
+          modo = 'w'
+          if (spaces[a][0] != '-t') {
+            numet = parseInt(spaces[a][0].substring(2))
+
+          }
+          isTexture=true
         }
-        tco1 = listcolor[tni][ccc]
-        ccc += 4;
-        if (ccc > 99) {
-          ccc = 0
-        }
-       
-         tco2 = listcolor[tni][ccc]
-        numet=1
-       if(spaces[a][0]!='.t'){
-         numet=parseInt(spaces[a][0].substring(2))
-       }
+
+        //console.log(numet)
+        drawtexture(tco1, tco2, numet, listcolor[tni], ccc, modo)
+
+
+
+        if (isTexture) {
+          //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
+          oc[1] = contrastext(listcolor[tni][ccc])
+          //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
           
-       
-       }
-         drawtexture(tco1, tco2,  numet, listcolor[tni], ccc)
-        
-       
-       
-      if (cadjoin.substring(0, 2) == '.t') {
-        //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
-        oc[1] = contrastext(tco1)
-        imgg = 'background-size:cover; background-image:url(' + foto[a] + ');'
-        cadjoin = cadjoin.substring(3)
-      }
-        
-        
-////////////////   SPECIAL
-        
+          imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
+
+          //cadjoin = cadjoin.substring(3)
+          spaces[a] = spaces[a].splice(1)
+        }
+
+
+
+
+
+        ////////////////   SPECIAL
+
         if (spaces[a][0] == ':-d') {
           spaces[a] = spaces[a].splice(1)
           //oc = otrocolorC3()
@@ -890,14 +918,12 @@ function showw() {
         if (esm && vacio != 0) {
           //tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
-        
-        //////////////////////   TEXTURES
-       
-    
-        
+
+
+
 
         /////////////////////////  GRADIENTS
-
+        var cadjoin = spaces[a].join(' ')
 
 
 
@@ -990,6 +1016,11 @@ function showw() {
           imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
           cadjoin = cadjoin.substring(3)
         }
+
+
+
+        //////////////////////   TEXTURES
+
 
         /////////
 
