@@ -501,16 +501,20 @@ function showw() {
         }
        
          tco2 = listcolor[tni][ccc]
+        numet=1
+       if(spaces[a][0]!='.t'){
+         numet=parseInt(spaces[a][0].substring(2))
+       }
+          
        
-           numet=5
-       
-        }
+       }
          drawtexture(tco1, tco2,  numet, listcolor[tni], ccc)
         
        
        
-       if (cadjoin.substring(0, 2) == '.t') {
-        oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
+      if (cadjoin.substring(0, 2) == '.t') {
+        //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
+        oc[1] = contrastext(tco1)
         imgg = 'background-size:cover; background-image:url(' + foto[a] + ');'
         cadjoin = cadjoin.substring(3)
       }
