@@ -1,7 +1,7 @@
 var imageData
 
-var wi = 80
-var he = 98
+var wi = 30
+var he = 148
 //wi = $('#accion').outerWidth();
 //he = $('.titulo').outerHeight();
 var wit = wi
@@ -32,7 +32,7 @@ var myvivid = {
 }
 var myvividcc = new RainbowGradient(myvivid)
 */
-var myvividArr = []
+//var myvividArr = []
 
 function setup() {
   cnv = createCanvas(wi, he);
@@ -52,7 +52,149 @@ function draw() {
 
 }
 
-function drawtexture(co1, co2, numero, pal, palcont,modo) {
+function drawtexture(numero, pal, palcont, modo) {
+  //resizeCanvas(40, 180);
+  var myvividArr = []
+  var contpc = palcont
+  if (numero > 1) {
+    //if (modo == 'w' || modo == 'h') {
+    for (var a = 0; a < numero; a++) {
+      myvividArr.push(pal[contpc])
+      contpc++
+      if (contpc >= pal.length) {
+        contpc = 0
+      }
+    }
+    if (numero > 1) {
+      if (modo == 'w') {
+        imageppW(myvividArr)
+      }
+      if (modo == 'h') {
+        imageppH(myvividArr)
+      }
+      //console.log(numero)
+    }
+  }
+  if (numero == 1) {
+    if (modo == 'w') {
+     
+      //imageData = createImage(180, 40);
+      //resizeCanvas(180, 40);
+    }
+    if (modo == 'h') {
+      //resizeCanvas(40, 180);
+    }
+    myvividArr = []
+    for (var a = 0; a < 7; a++) {
+      myvividArr.push(pal[contpc])
+      contpc++
+      if (contpc >= pal.length) {
+        contpc = 0
+      }
+    }
+    imageppR(myvividArr)
+  }
+
+
+  //$('#texto').append("\n"+'foto.push("'+imageData.canvas.toDataURL()+'");')
+  //$('#accion').append('<img src="'+imageData.canvas.toDataURL()+'">')
+  //foto.push(imageData.canvas.toDataURL())
+  return imageData.canvas.toDataURL()
+}
+
+
+
+
+
+
+function imageppH(mycArr) {
+  var arW = []
+  var voy = 0
+  var n = mycArr.length
+  for (var a = 0; a < n; a++) {
+    arW.push(voy)
+    voy += int(width / n);
+  }
+  var contW = 0
+  var contmy = 0
+  var gr = mycArr[contmy]
+  for (let i = 0; i < wit; i++) {
+    if (arW[contW] == i) {
+      gr = mycArr[contmy]
+      contmy++
+      if (contmy >= mycArr.length) {
+        contmy = 0
+      }
+      contW++
+      if (contW >= arW.length) {
+        contW = 0
+      }
+    }
+    for (let j = 0; j < het; j++) {
+      let cl = color(gr[0], gr[1], gr[2], 250);
+      imageData.set(i, j, cl);
+    }
+  }
+  imageData.updatePixels();
+  image(imageData, 0, 0, wit, het)
+}
+
+function imageppW(mycArr) {
+  var arH = []
+  var voy = 0
+  var n = mycArr.length
+  var modh = int(height / n);
+  for (var b = 0; b < n; b++) {
+    arH.push(voy)
+    voy += modh;
+  }
+  var contW = 0
+  var contH = 0
+  var contmy = 0
+  var gr = mycArr[contmy]
+  // console.log(myvividArr.length+' linea')
+  for (let i = 0; i < wit; i++) {
+    contmy = 0
+    contH = 0
+    for (let j = 0; j < het; j++) {
+      if (j == arH[contH]) {
+        gr = mycArr[contmy]
+        contmy++
+        if (contmy >= mycArr.length) {
+          contmy = 0
+        }
+        contH++
+        if (contH > arH.length) {
+          contH = 0
+        }
+      }
+      let cl = color(gr[0], gr[1], gr[2], 250);
+      imageData.set(i, j, cl);
+    }
+  }
+  imageData.updatePixels();
+  image(imageData, 0, 0, wit, het)
+}
+
+function imageppR(mycArr) {
+  var arH = []
+  var arW = []
+  var voy = 0
+  var contmy = 0
+  for (let i = 0; i < wit; i++) {
+    for (let j = 0; j < het; j++) {
+      contmy = int(random(0, mycArr.length - 1))
+      gr = mycArr[contmy]
+      //let cl = p.color(claro.max - j * cj, claro.max - 10 - (i * ci), claro.max, 250);
+      let cl = color(gr[0], gr[1], gr[2], 250);
+      imageData.set(i, j, cl);
+    }
+  }
+  imageData.updatePixels();
+  image(imageData, 0, 0, wit, het)
+}
+
+function drawtexture_03(numero, pal, palcont, modo) {
   myvividArr = []
   var contpc = palcont
   if (numero >= 1) {
@@ -64,10 +206,12 @@ function drawtexture(co1, co2, numero, pal, palcont,modo) {
       }
     }
     if (numero > 1) {
-      if(modo=='w'){
-      imageppW(numero)}
-      if(modo=='h'){
-      imageppH(numero)}
+      if (modo == 'w') {
+        imageppW(numero)
+      }
+      if (modo == 'h') {
+        imageppH(numero)
+      }
       //console.log(numero)
     }
     if (numero == 1) {
@@ -83,119 +227,4 @@ function drawtexture(co1, co2, numero, pal, palcont,modo) {
     }
 
   }
-
-
-  //imageppH(numero)
-  //imageppW(numero)
-
-  //$('#texto').append("\n"+'foto.push("'+imageData.canvas.toDataURL()+'");')
-  //$('#accion').append('<img src="'+imageData.canvas.toDataURL()+'">')
-  foto.push(imageData.canvas.toDataURL())
-}
-
-
-
-
-
-function imageppH(n) {
-  var arH=[]
-  var arW=[]
-  var voy=0
-  for(var a=0;a<n;a++){
-    arW.push(voy)
-    voy+=int(width/n);
-  }
-   for(var b=0;b<n;b++){
-    arH.push(voy)
-    voy+=int(height/n);
-  }
-  var contW=0
-  var contH=0
-  var contmy=0
-  var gr = myvividArr[contmy]
-
-  for (let i = 0; i < wit; i++) {
-     if(arW[contW]==i){
-       gr =myvividArr[contmy]
-       contmy++
-       if(contmy>=myvividArr.length){contmy=0}
-       contW++
-       if(contW>=arW.length){contW=0}
-    }
-   
-    for (let j = 0; j < het; j++) {
-      let cl = color(gr[0], gr[1], gr[2], 250);
-      imageData.set(i, j, cl);
-    }
-  }
-  imageData.updatePixels();
-  image(imageData, 0, 0, wit, het)
-}
-
-function imageppW(n) {
-  var arH=[]
-  var arW=[]
-  var voy=0
-  var modw=int(width/n)
-  var modh=int(height/n);
-  for(var a=0;a<n;a++){
-    arW.push(voy)
-    voy+=modw;
-  }
-  voy=0
-   for(var b=0;b<n;b++){
-    arH.push(voy)
-    voy+=modh;
-  }
-  var contW=0
-  var contH=0
-  var contmy=0
-  var gr = myvividArr[contmy]
-  // console.log(myvividArr.length+' linea')
-  for (let i = 0; i < wit; i++) {
-   
-   contmy=0
-   contH=0
-    for (let j = 0; j < het; j++) {
-      
-     if(j==arH[contH]){
-      
-       gr =  myvividArr[contmy]
-       contmy++
-       if(contmy>=myvividArr.length){contmy=0}
-       contH++
-       if(contH>arH.length){contH=0}
-      
-    }
-      let cl = color(gr[0], gr[1], gr[2], 250);
-      imageData.set(i, j, cl);
-    }
-  }
-  imageData.updatePixels();
-  image(imageData, 0, 0, wit, het)
-}
-
-function imageppR(n) {
-  var arH = []
-  var arW = []
-  var voy = 0
-
-
-  var contmy = 0
-  for (let i = 0; i < wit; i++) {
-
-
-    for (let j = 0; j < het; j++) {
-
-
-      contmy = int(random(0, myvividArr.length - 1))
-      gr = myvividArr[contmy]
-
-      //let cl = p.color(claro.max - j * cj, claro.max - 10 - (i * ci), claro.max, 250);
-      let cl = color(gr[0], gr[1], gr[2], 250);
-      imageData.set(i, j, cl);
-    }
-  }
-  imageData.updatePixels();
-  image(imageData, 0, 0, wit, het)
 }
