@@ -412,11 +412,6 @@ function showw() {
 
     if (spaces[a][0] != null) {
 
-
-
-
-
-
       var ht = spaces[a][0].substring(0, 4)
       //alert(ht+'_')
 
@@ -481,74 +476,7 @@ function showw() {
         var imgg = ''
         var tag = ['', '', '']
 
-
-
-        ///////////////////  TEXTURES
-        // spaces[a][0].substring(0, 4)
-        var tni = nemoji
-        var modo = 'v'
-        var numet = 1,
-          tco1 = [9, 9, 9],
-          tco2 = [0, 0, 0]
-        var isTexture=false
-        if (spaces[a][0].substring(0, 2) == '.t') {
-          tni = nemoji0
-          if (expresion == 1) {
-            tni = nemoji1
-          }
-          ccc += 1;
-          if (ccc > 99) {
-            ccc = 0
-          }
-          tco2 = listcolor[tni][ccc]
-          numet = 1
-          modo = 'h'
-          if (spaces[a][0] != '.t') {
-            numet = parseInt(spaces[a][0].substring(2))
-
-          }
-          isTexture=true
-        }
-        if (spaces[a][0].substring(0, 2) == '-t') {
-          tni = nemoji0
-          if (expresion == 1) {
-            tni = nemoji1
-          }
-          ccc += 1;
-          if (ccc > 99) {
-            ccc = 0
-          }
-          tco2 = listcolor[tni][ccc]
-          numet = 1
-          modo = 'w'
-          if (spaces[a][0] != '-t') {
-            numet = parseInt(spaces[a][0].substring(2))
-
-          }
-          isTexture=true
-        }
-
-        //console.log(numet)
-        drawtexture(tco1, tco2, numet, listcolor[tni], ccc, modo)
-
-
-
-        if (isTexture) {
-          //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
-          oc[1] = contrastext(listcolor[tni][ccc])
-          //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
-          
-          imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
-
-          //cadjoin = cadjoin.substring(3)
-          spaces[a] = spaces[a].splice(1)
-        }
-
-
-
-
-
-        ////////////////   SPECIAL
+       ////////////////   SPECIAL
 
         if (spaces[a][0] == ':-d') {
           spaces[a] = spaces[a].splice(1)
@@ -1019,7 +947,75 @@ function showw() {
 
 
 
-        //////////////////////   TEXTURES
+               ///////////////////  TEXTURES
+
+        // spaces[a][0].substring(0, 4)
+        var ptlog1 = spaces[a][0].indexOf('.t')
+        var ptlog2 = spaces[a][0].indexOf('-t')
+        //var emotindex=nemoji0
+        var tni = nemoji0 
+        var cademo = '' 
+        var isTexture = false
+        var modo = 'r'
+        var numet = 1
+        //var cademo2 = 0
+        if ((ptlog1 > 1 || ptlog2 > 1) ) {
+          //console.log(ptlog1 +' '+ptlog2)
+          if (ptlog1 >= 0) {
+            cademo = spaces[a][0].substring(0, ptlog1)
+            tni = iconums.indexOf(cademo);
+            spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
+                 //console.log(spaces[a][0])
+           }
+          if (ptlog2 >= 0) {
+            cademo = spaces[a][0].substring(0, ptlog2)
+            tni = iconums.indexOf(cademo);
+            //console.log(tni)
+            spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
+               
+          }
+          isTexture = true
+          numet=1
+        }
+        var tlog = spaces[a][0].substring(0, 2)
+       
+       
+        if (tlog == '.t' || tlog == '-t') {
+          ccc += 1;
+          if (ccc > 99) {
+            ccc = 0
+          }
+          //var tco1 = listcolor[tni][ccc]
+          numet=1          
+          if (spaces[a][0] != '.t' || spaces[a][0] != '-t') {
+            var numeti = parseInt(spaces[a][0].substring(2))
+            if(isNaN(numeti)){numet=1}else{numet=numeti}
+          }
+          if (tlog == '.t') {
+            modo = 'h'
+          }
+          if (tlog == '-t') {
+            modo = 'w'
+          }
+          isTexture = true
+           //spaces[a] = spaces[a].splice(1)
+        }
+
+        if (isTexture) {
+           console.log(cademo+' tni:' + tni+ ' '+ numet + ' '+ modo )
+
+          var srci=drawtexture(numet, listcolor[tni], ccc, modo)
+          //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
+          oc[1] = contrastext(listcolor[tni][ccc])
+          //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
+          //imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
+          imgg = 'background-size: 100% 100%; background-image:url(' + srci + ');'
+          spaces[a] = spaces[a].splice(1)
+          cadjoin = spaces[a].join(' ')
+          //cadjoin = cadjoin.substring(3)
+         
+        }
+
 
 
         /////////
@@ -1423,6 +1419,8 @@ function emoti(chain) {
   }
   return htm
 }
+
+
 
 function replaceAll(find, replace, str) {
 
