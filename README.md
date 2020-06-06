@@ -1,10 +1,13 @@
 # Emotext
 Hypertext lenguage for expressive paragraphs using emoticons 
+(CSS and HTML sub-language)
 
 In the first line make a backgroud gradient in the other lines make a paragraph colored
 If a line have only emoticon then next paragraphs are as this color style
 
 ON THE FIRST LINE   WidthSymbol or/and brightness or/and emoticon or/and+space  phase +space numOfColors(default 100)
+
+Default (long paragraph, vivid color, phase 2, 32 colors)
 
 :-(_:-) Dark to Vivid
 
@@ -51,7 +54,11 @@ x-( Brown
 
 AT THE BEGINNING OF THE LINE
 
+default (rounded div aligned center)
+
 0 Frameless
+
+. square div left alignment
 
 .. Harmonic linear gradient 
 
@@ -85,9 +92,19 @@ ihttp://......etc.jpg image
 
 ahttp://..... etc image and link
 
+.t Random pixel background texture
+
+-t Random pixel bacground Texture
+
+.t2  Two color as vertival background
+
+-t2 Two color as horizontal background
+
+
 IN THE PARAGRAPH
 
  ..  (space + two points) New line 
+ 
 http://..  or www...     link
  
 
