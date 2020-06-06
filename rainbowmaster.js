@@ -1058,7 +1058,8 @@ function showw() {
     }
   }
   //$('#lista').html(cad+'<br>'+fr)
-  $('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:' + listcolor[nemoji][0] + 'font-family:Helvetica;font-size:x-small;" >Emotext</a>')
+  //$('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:' + listcolor[nemoji][0] + 'font-family:Helvetica;font-size:x-small;" >Emotext</a>')
+  $('#accion').html(cad + '<br>')
   //alert(cad)
 
 }
