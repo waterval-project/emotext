@@ -821,11 +821,11 @@ function showw() {
             continue;
           }
         }
-        ///////////////////////////   EXTRANGERS
+        ///////////////////////////   BASIC EXTRANGERS
         if (spaces[a][0] == '.') {
           spaces[a] = spaces[a].splice(1)
           oc = ['transparent', bg[1]]
-          imgg = 'font-weight:700;'
+          imgg = 'font-weight:700; text-align:center;'
         }
         if (spaces[a][0] == '-') {
           spaces[a] = spaces[a].splice(1)
@@ -837,6 +837,7 @@ function showw() {
           oc = ['transparent', bg[1]]
           imgg = 'font-weight:700; text-align:right;'
         }
+       
 
         /////////////////////////  BOLD
 
@@ -950,6 +951,7 @@ function showw() {
                ///////////////////  TEXTURES
 
         // spaces[a][0].substring(0, 4)
+        if(typeof spaces[a][0] === 'undefined'){}else{
         var ptlog1 = spaces[a][0].indexOf('.t')
         var ptlog2 = spaces[a][0].indexOf('-t')
         //var emotindex=nemoji0
@@ -1015,7 +1017,7 @@ function showw() {
           //cadjoin = cadjoin.substring(3)
          
         }
-
+        }
 
 
         /////////
