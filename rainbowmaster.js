@@ -1227,6 +1227,19 @@ function copyToClip(str) {
   // writing = false;
 };
 
+function copyToImage() {
+  html2canvas($("#accion"), {
+        background: "rgba(0,0,0,0)",
+        onrendered: function(canvas) {
+            // canvas is the final rendered <canvas> element
+          //$('#info').show()
+           //startt()
+            var myImage = canvas.toDataURL("image/png");
+            window.open(myImage, "rainbowmaster");
+        }
+    });
+  
+}
 var brn = "\n"
 
 function demo(n) {
@@ -1337,6 +1350,7 @@ function visual02() {
   // var s2=  s1.find("#texto").remove()
   //var s1=  s2.find("#info").remove()
   copyToClip(s)
+  copyToImage()
   //$('#accion').attr('contentEditable','false');
   //$('#accion').select()
   //document.execCommand('copy')
