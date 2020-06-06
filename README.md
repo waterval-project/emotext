@@ -58,7 +58,11 @@ default (rounded div aligned center)
 
 0 Frameless
 
-. square div left alignment
+. Frameless bold alignment center
+
+- Frameless bold  alignment left
+
+_ Frameless bold  alignment right
 
 .. Harmonic linear gradient 
 
