@@ -1,7 +1,8 @@
 var nemoji = 1
 var nemoji1 = 1
 var nemoji0 = 1
-
+var DEFAULTalign = 'center'; // left rigth center justify
+var DEFAULTparagraph = 12; // 0 -1 12  X 0 O (square, none, rounded)
 
 var rcol1 = 255
 var rcol2 = 255
@@ -233,6 +234,21 @@ function iniRepeatedChar(s) {
 
 function aumentaD(repini, np1) {
   var nparts = 5
+  if (repini == 5) {
+    paleta[np1].prop.r1[0] = 255
+    paleta[np1].prop.g1[0] = 255
+    paleta[np1].prop.b1[0] = 255
+    paleta[np1].prop.r2[0] = 255
+    paleta[np1].prop.g2[0] = 255
+    paleta[np1].prop.b2[0] = 255
+    paleta[np1].prop.r1[1] = 1
+    paleta[np1].prop.g1[1] = 1
+    paleta[np1].prop.b1[1] = 1
+    paleta[np1].prop.r2[1] = 1
+    paleta[np1].prop.g2[1] = 1
+    paleta[np1].prop.b2[1] = 1
+    return
+  }
   if (paleta[np1].prop.r1[1] < 1) {
     paleta[np1].prop.r1[1] += ((1 - paleta[np1].prop.r1[1]) / nparts) * repini
   }
@@ -323,6 +339,21 @@ function showw() {
   var anchodiv = 750; // 
   var anchodivpercent = '80%';
   //
+    if (spaces[0][0].substring(0, 1) == 'O') {
+    DEFAULTparagraph=12
+    spaces[0][0] = spaces[0][0].substring(1);
+  }
+   if (spaces[0][0].substring(0, 1) == 'X') {
+    DEFAULTparagraph=0
+    spaces[0][0] = spaces[0][0].substring(1);
+  }
+   if (spaces[0][0].substring(0, 1) == '0') {
+    DEFAULTparagraph=-1
+    spaces[0][0] = spaces[0][0].substring(1);
+  }
+
+
+  
   if (spaces[0][0].substring(0, 2) == '..') {
     anchodiv = 500
     spaces[0][0] = spaces[0][0].substring(2);
@@ -408,8 +439,15 @@ function showw() {
   //console.log(spaces[0][0]+' '+anchodiv)
   $('#accion').css('width', (anchodiv) + 'px')
   foto = []
+  ///////  BOLD INSIDE PARAGRAPH
   for (var a = 0; a < spaces.length; a++) {
-
+    if (spaces[a].length > 1) {
+      for (var i = 1; i < spaces[a].length; i++) {
+        if (spaces[a][i].substring(0, 2) == 'oo' && spaces[a][i].length > 2) {
+          spaces[a][i] = '<b>' + spaces[a][i].substring(2) + '</b>';
+        }
+      }
+    }
     if (spaces[a][0] != null) {
 
       var ht = spaces[a][0].substring(0, 4)
@@ -476,7 +514,7 @@ function showw() {
         var imgg = ''
         var tag = ['', '', '']
 
-       ////////////////   SPECIAL
+        ////////////////   SPECIAL
 
         if (spaces[a][0] == ':-d') {
           spaces[a] = spaces[a].splice(1)
@@ -509,11 +547,33 @@ function showw() {
           //imgg = 'background-image:radial-gradient(' + oc[0] + ',' + oc[2] + ');'
         }
         var vacio = 1;
+        if(DEFAULTparagraph==-1){vacio=0}
+        var radioParagraph=DEFAULTparagraph
         if (spaces[a][0] == '0') {
-          spaces[a] = spaces[a].splice(1)
           oc = ['transparent', bg[1]]
+          if (spaces[a].length == 1) {
+            DEFAULTparagraph=-1
+           }
           vacio = 0
+          radioParagraph=0
+          spaces[a] = spaces[a].splice(1)
         }
+         if (spaces[a][0] == 'X') {
+           radioParagraph=0
+           if (spaces[a].length == 1) {
+            DEFAULTparagraph=0
+           }
+           
+           spaces[a] = spaces[a].splice(1)
+         }
+         if (spaces[a][0] == 'O') {
+           radioParagraph=12
+           if (spaces[a].length == 1) {
+            DEFAULTparagraph=12
+           }
+            spaces[a] = spaces[a].splice(1)
+         }
+        
 
         ////////////////////////// EMOJI LINES COLOR
         var expresion = 0;
@@ -822,30 +882,99 @@ function showw() {
           }
         }
         ///////////////////////////   BASIC EXTRANGERS
-        if (spaces[a][0] == '.') {
+
+        if (spaces[a][0] == '++') {
           spaces[a] = spaces[a].splice(1)
-          oc = ['transparent', bg[1]]
-          imgg = 'font-weight:700; text-align:center;'
+          imgg += 'font-size:large;'
+        }
+        if (spaces[a][0] == '+++') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-size:x-large;'
+        }
+        if (spaces[a][0] == '++++') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-size:xx-large;'
+        }
+        if (spaces[a][0] == '--') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-size:small;'
+        }
+        if (spaces[a][0] == '---') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-size:x-small;'
+        }
+        if (spaces[a][0] == '----') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-size:xxx-small;'
+        }
+        
+           //////// ALIGN
+        var aligned=false
+        var tali=''
+        if (spaces[a][0] == '.') {
+          //oc = ['transparent', bg[1]]
+          tali= 'text-align:center;'
+          if (spaces[a].length == 1) {
+            DEFAULTalign = 'center';
+          }
+          aligned=true
+          spaces[a] = spaces[a].splice(1)
         }
         if (spaces[a][0] == '-') {
+          //oc = ['transparent', bg[1]]
+          tali= 'text-align:left;'
+          if (spaces[a].length == 1) {
+            DEFAULTalign = 'left';
+          } 
+          aligned=true
           spaces[a] = spaces[a].splice(1)
-          oc = ['transparent', bg[1]]
-          imgg = 'font-weight:700; text-align:left;'
         }
         if (spaces[a][0] == '_') {
-          spaces[a] = spaces[a].splice(1)
-          oc = ['transparent', bg[1]]
-          imgg = 'font-weight:700; text-align:right;'
+           tali= 'text-align:right;'
+          if (spaces[a].length == 1) {
+            DEFAULTalign = 'right';
+          }
+          aligned=true
+         spaces[a] = spaces[a].splice(1)
         }
-       
-
+        if (spaces[a][0] == 'o') {
+          tali= 'text-align:justify;'
+          if (spaces[a].length == 1) {
+            DEFAULTalign = 'justify';
+          }
+          aligned=true
+          spaces[a] = spaces[a].splice(1)
+        }
+        if(aligned){
+          imgg+=tali
+                   }else{
+               imgg+= 'text-align:'+DEFAULTalign+';'
+        }
         /////////////////////////  BOLD
+
+        if (spaces[a][0] == 'oo') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-weight:bold;'
+        }
+
+
 
         var esm = esmayuscula(spaces[a].join(' '))
         var tag = ['', '', '']
 
         if (esm && vacio != 0) {
           //tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
+        }
+        
+         if(radioParagraph==-1){
+                 radioParagraph=0
+                   }else{
+               //radioParagraph=DEFAULTparagraph
+        }
+        
+        if (vacio == 0) {
+           oc = ['transparent', bg[1]]
+           radioParagraph=0
         }
 
 
@@ -948,75 +1077,79 @@ function showw() {
 
 
 
-               ///////////////////  TEXTURES
+        ///////////////////  TEXTURES
 
         // spaces[a][0].substring(0, 4)
-        if(typeof spaces[a][0] === 'undefined'){}else{
-        var ptlog1 = spaces[a][0].indexOf('.t')
-        var ptlog2 = spaces[a][0].indexOf('-t')
-        //var emotindex=nemoji0
-        var tni = nemoji0 
-        var cademo = '' 
-        var isTexture = false
-        var modo = 'r'
-        var numet = 1
-        //var cademo2 = 0
-        if ((ptlog1 > 1 || ptlog2 > 1) ) {
-          //console.log(ptlog1 +' '+ptlog2)
-          if (ptlog1 >= 0) {
-            cademo = spaces[a][0].substring(0, ptlog1)
-            tni = iconums.indexOf(cademo);
-            spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
-                 //console.log(spaces[a][0])
-           }
-          if (ptlog2 >= 0) {
-            cademo = spaces[a][0].substring(0, ptlog2)
-            tni = iconums.indexOf(cademo);
-            //console.log(tni)
-            spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
-               
-          }
-          isTexture = true
-          numet=1
-        }
-        var tlog = spaces[a][0].substring(0, 2)
-       
-       
-        if (tlog == '.t' || tlog == '-t') {
-          ccc += 1;
-          if (ccc > 99) {
-            ccc = 0
-          }
-          //var tco1 = listcolor[tni][ccc]
-          numet=1          
-          if (spaces[a][0] != '.t' || spaces[a][0] != '-t') {
-            var numeti = parseInt(spaces[a][0].substring(2))
-            if(isNaN(numeti)){numet=1}else{numet=numeti}
-          }
-          if (tlog == '.t') {
-            modo = 'h'
-          }
-          if (tlog == '-t') {
-            modo = 'w'
-          }
-          isTexture = true
-           //spaces[a] = spaces[a].splice(1)
-        }
+        if (typeof spaces[a][0] === 'undefined') {} else {
+          var ptlog1 = spaces[a][0].indexOf('.t')
+          var ptlog2 = spaces[a][0].indexOf('-t')
+          //var emotindex=nemoji0
+          var tni = nemoji0
+          var cademo = ''
+          var isTexture = false
+          var modo = 'r'
+          var numet = 1
+          //var cademo2 = 0
+          if ((ptlog1 > 1 || ptlog2 > 1)) {
+            //console.log(ptlog1 +' '+ptlog2)
+            if (ptlog1 >= 0) {
+              cademo = spaces[a][0].substring(0, ptlog1)
+              tni = iconums.indexOf(cademo);
+              spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
+              //console.log(spaces[a][0])
+            }
+            if (ptlog2 >= 0) {
+              cademo = spaces[a][0].substring(0, ptlog2)
+              tni = iconums.indexOf(cademo);
+              //console.log(tni)
+              spaces[a][0] = spaces[a][0].substring(iconums[tni].length)
 
-        if (isTexture) {
-           console.log(cademo+' tni:' + tni+ ' '+ numet + ' '+ modo )
+            }
+            isTexture = true
+            numet = 1
+          }
+          var tlog = spaces[a][0].substring(0, 2)
 
-          var srci=drawtexture(numet, listcolor[tni], ccc, modo)
-          //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
-          oc[1] = contrastext(listcolor[tni][ccc])
-          //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
-          //imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
-          imgg = 'background-size: 100% 100%; background-image:url(' + srci + ');'
-          spaces[a] = spaces[a].splice(1)
-          cadjoin = spaces[a].join(' ')
-          //cadjoin = cadjoin.substring(3)
-         
-        }
+
+          if (tlog == '.t' || tlog == '-t') {
+            ccc += 1;
+            if (ccc > 99) {
+              ccc = 0
+            }
+            //var tco1 = listcolor[tni][ccc]
+            numet = 1
+            if (spaces[a][0] != '.t' || spaces[a][0] != '-t') {
+              var numeti = parseInt(spaces[a][0].substring(2))
+              if (isNaN(numeti)) {
+                numet = 1
+              } else {
+                numet = numeti
+              }
+            }
+            if (tlog == '.t') {
+              modo = 'h'
+            }
+            if (tlog == '-t') {
+              modo = 'w'
+            }
+            isTexture = true
+            //spaces[a] = spaces[a].splice(1)
+          }
+
+          if (isTexture) {
+            console.log(cademo + ' tni:' + tni + ' ' + numet + ' ' + modo)
+
+            var srci = drawtexture(numet, listcolor[tni], ccc, modo)
+            //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
+            oc[1] = contrastext(listcolor[tni][ccc])
+            //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
+            //imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
+            imgg = 'background-size: 100% 100%; background-image:url(' + srci + ');'
+            spaces[a] = spaces[a].splice(1)
+            cadjoin = spaces[a].join(' ')
+            //cadjoin = cadjoin.substring(3)
+
+          }
         }
 
 
@@ -1032,7 +1165,7 @@ function showw() {
 
         //-->class="bloque"
         //cad+=tag[0]+'<div class="'+tag[2]+'" style=" border-radius: 12px;padding:6px;text-align:center;'+imgg+'background-color:'+oc[0]+'; color:'+oc[1]+';width:700px;">'+spaces[a].join(' ') +'&nbsp;</div>'+tag[1]+'<div style= "margin:5px;"></div>';//splitext[a].split(' ')
-        cad += tag[0] + '<div style="' + tag[2] + 'border-radius: 12px;display: inline-block;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchodivpercent + ';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
+        cad += tag[0] + '<div style="' + tag[2] + 'border-radius:'+radioParagraph+'px;display: inline-block;padding:8px 28px;margin:5px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchodivpercent + ';">' + thsline + '&nbsp;</div>' + tag[1] + '<br>';
         /* -->
        //cad += tag[0] + '<div style="display:table; border-spacing: 5px; ' + tag[2] + 'border-radius: 12px;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';"><div style=" display: table-row; width: auto; clear: both;">'
       
@@ -1058,6 +1191,7 @@ function showw() {
     }
   }
   //$('#lista').html(cad+'<br>'+fr)
+
   //$('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:' + listcolor[nemoji][0] + 'font-family:Helvetica;font-size:x-small;" >Emotext</a>')
   $('#accion').html(cad + '<br>')
   //alert(cad)
@@ -1230,16 +1364,16 @@ function copyToClip(str) {
 
 function copyToImage() {
   html2canvas($("#accion"), {
-        background: "rgba(0,0,0,0)",
-        onrendered: function(canvas) {
-            // canvas is the final rendered <canvas> element
-          //$('#info').show()
-           //startt()
-            var myImage = canvas.toDataURL("image/png");
-            window.open(myImage, "rainbowmaster");
-        }
-    });
-  
+    background: "rgba(0,0,0,0)",
+    onrendered: function(canvas) {
+      // canvas is the final rendered <canvas> element
+      //$('#info').show()
+      //startt()
+      var myImage = canvas.toDataURL("image/png");
+      window.open(myImage, "rainbowmaster");
+    }
+  });
+
 }
 var brn = "\n"
 
@@ -1351,7 +1485,7 @@ function visual02() {
   // var s2=  s1.find("#texto").remove()
   //var s1=  s2.find("#info").remove()
   copyToClip(s)
-  copyToImage()
+  //copyToImage()
   //$('#accion').attr('contentEditable','false');
   //$('#accion').select()
   //document.execCommand('copy')
