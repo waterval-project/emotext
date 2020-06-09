@@ -1185,7 +1185,7 @@ function showw() {
             oc[1] = contrastext(listcolor[tni][ccc])
             //imgg = ' background-repeat: no-repeat; background-attachment: fixed; background-position: 0px px; background-size: 100% 100%; background-image:url(' + foto[a] + ');'
             //imgg = 'background-size: 100% 100%; background-image:url(' + foto[a] + ');'
-            imgg = 'background-size: 100% 100%; background-image:url(' + srci + ');'
+            imgg += 'background-size: 100% 100%; background-image:url(' + srci + ');'
             spaces[a] = spaces[a].splice(1)
             cadjoin = spaces[a].join(' ')
             //cadjoin = cadjoin.substring(3)
