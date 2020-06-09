@@ -1,8 +1,21 @@
 var nemoji = 1
 var nemoji1 = 1
 var nemoji0 = 1
-var DEFAULTalign = 'center'; // left rigth center justify
+var DEFAULTalign = 'center'; //  - _ . o   left rigth center justify
 var DEFAULTparagraph = 12; // 0 -1 12  X 0 O (square, none, rounded)
+var FONTsize =['s3','s2','s1', 'l1','l2','l3'] //smalll large
+var FONTweightStyle =['ii','bb'] // italic bold
+var FONTfamily =['ar','tm', 've' ,'ca','co','ff'] // arial times verdana calibri courier ffOther
+var TEXTdecoration =['ti','uu','oo', 'uudd', 'oodd','uuww', 'ooww'] // line- underline, overline, underline dotted, overline dotted, underline wavy, underline wavy
+var FONTmix=[
+  {d:["ui","iu"],r:"font-style:italic;text-decoration:underline;"},
+  {d:["bu","ub"],r:"text-decoration:underline;font-weight:bold;"},
+  {d:["bi","ib"], r:"font-style:italic;font-weight:bold;"},
+  {d:["biu","bui","ibu","iub","ubi","uib"],r:"text-decoration:underline;font-style:italic;font-weight:bold;"}
+   ]
+
+
+// s3bbuu
 
 var rcol1 = 255
 var rcol2 = 255
@@ -23,18 +36,21 @@ var setgrL = {
 var listcolor = []
 var urlImages = 'https://waterval-project.github.io/emotext/'
 var ibg = []
-ibg[11] = urlImages + '11.gif'
 ibg[0] = urlImages + 'random01.gif'
 ibg[1] = urlImages + 'vivid04.gif'
 ibg[2] = urlImages + 'dark01.gif'
 ibg[3] = urlImages + 'bright01.gif'
 ibg[4] = urlImages + 'grey01.gif'
 ibg[5] = urlImages + 'red01.gif'
+ibg[11] = urlImages + '11.gif'
 var sticker = []
 sticker[0] = 'https://upload.wikimedia.org/wikipedia/commons/3/31/Pentagonalicositetrahedronccw.gif'
 var borderi = []
 borderi[0] = urlImages + 'border2.png'
 borderi[1] = urlImages + 'border2.png'
+
+
+
 
 
 function otrocolorOne() {
@@ -443,8 +459,20 @@ function showw() {
   for (var a = 0; a < spaces.length; a++) {
     if (spaces[a].length > 1) {
       for (var i = 1; i < spaces[a].length; i++) {
-        if (spaces[a][i].substring(0, 2) == 'oo' && spaces[a][i].length > 2) {
+    /*
+     if( FONTmix[0].d.indexOf(spaces[a][i].substring(2))>-1){  spaces[a][i] = '<span '+FONTmix[0].r+'>' + spaces[a][i].substring(2) + '</span>'}
+     if( FONTmix[1].d.indexOf(spaces[a][i].substring(2))>-1){ spaces[a][i] = '<span '+FONTmix[1].r+'>' + spaces[a][i].substring(2) + '</span>'}
+     if( FONTmix[2].d.indexOf(spaces[a][i].substring(2))>-1){ spaces[a][i] = '<span '+FONTmix[2].r+'>' + spaces[a][i].substring(2) + '</span>'}
+     if( FONTmix[3].d.indexOf(spaces[a][i].substring(3))>-1){ spaces[a][i] = '<span '+FONTmix[3].r+'>' + spaces[a][i].substring(3) + '</span>'}
+    */
+        if (spaces[a][i].substring(0, 2) == 'bb' && spaces[a][i].length > 2) {
           spaces[a][i] = '<b>' + spaces[a][i].substring(2) + '</b>';
+        }
+        if (spaces[a][i].substring(0, 2) == 'uu' && spaces[a][i].length > 2) {
+          spaces[a][i] = '<u>' + spaces[a][i].substring(2) + '</u>';
+        }
+        if (spaces[a][i].substring(0, 2) == 'ii' && spaces[a][i].length > 2) {
+          spaces[a][i] = '<i>' + spaces[a][i].substring(2) + '</i>';
         }
       }
     }
@@ -463,7 +491,7 @@ function showw() {
         }
         var ahtt = ''
         if (ht == 'ahtt') {
-          console.log(spaces[a])
+          //console.log(spaces[a])
           spaces[a][0] = spaces[a][0].substring(1);
           var ahtt = '<a href="' + spaces[a][1] + '" target="_blank">' + '<img src="' + spaces[a][0] + '" width="200px"/></a>';
 
@@ -883,27 +911,27 @@ function showw() {
         }
         ///////////////////////////   BASIC EXTRANGERS
 
-        if (spaces[a][0] == '++') {
+        if (spaces[a][0] == 'l1') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:large;'
         }
-        if (spaces[a][0] == '+++') {
+        if (spaces[a][0] == 'l2') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:x-large;'
         }
-        if (spaces[a][0] == '++++') {
+        if (spaces[a][0] == 'l3') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:xx-large;'
         }
-        if (spaces[a][0] == '--') {
+        if (spaces[a][0] == 's1') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:small;'
         }
-        if (spaces[a][0] == '---') {
+        if (spaces[a][0] == 's2') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:x-small;'
         }
-        if (spaces[a][0] == '----') {
+        if (spaces[a][0] == 's3') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-size:xxx-small;'
         }
@@ -952,13 +980,26 @@ function showw() {
         }
         /////////////////////////  BOLD
 
-        if (spaces[a][0] == 'oo') {
+        if (spaces[a][0] == 'bb') {
           spaces[a] = spaces[a].splice(1)
           imgg += 'font-weight:bold;'
         }
+     if (spaces[a][0] == 'ii') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'font-style:italic;'
+        }
+     if (spaces[a][0] == 'uu') {
+          spaces[a] = spaces[a].splice(1)
+          imgg += 'text-decoration:underline;'
+        }
+     if( FONTmix[0].d.indexOf(spaces[a][0])>-1){imgg += FONTmix[0].r; spaces[a] = spaces[a].splice(1) }
+     if( FONTmix[1].d.indexOf(spaces[a][0])>-1){imgg += FONTmix[1].r; spaces[a] = spaces[a].splice(1)}
+     if( FONTmix[2].d.indexOf(spaces[a][0])>-1){imgg += FONTmix[2].r; spaces[a] = spaces[a].splice(1)}
+     if( FONTmix[3].d.indexOf(spaces[a][0])>-1){imgg += FONTmix[3].r; spaces[a] = spaces[a].splice(1)}
 
 
-
+ 
+      
         var esm = esmayuscula(spaces[a].join(' '))
         var tag = ['', '', '']
 
@@ -1137,7 +1178,7 @@ function showw() {
           }
 
           if (isTexture) {
-            console.log(cademo + ' tni:' + tni + ' ' + numet + ' ' + modo)
+            //console.log(cademo + ' tni:' + tni + ' ' + numet + ' ' + modo)
 
             var srci = drawtexture(numet, listcolor[tni], ccc, modo)
             //oc[1] = contrastext([myvivid.r1[0], myvivid.g1[0], myvivid.b1[0]])
@@ -1497,6 +1538,7 @@ function visual02() {
 
 
 $(document).ready(function() {
+  $('#clearbutt').click(function(){$('#texto').val('')})
   paleta = JSON.parse(JSON.stringify(inipaleta));
   colorea()
   dataSesion = $('#texto').text().split("\n")
