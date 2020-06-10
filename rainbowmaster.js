@@ -91,8 +91,35 @@ function contrastext(rgb) {
 
 }
 
+function replaceTxtNotInA(html, regex, replace) {
 
-function linkify(inputText, c) {
+	//just to make the txt parse easily, without (start) or (ends) issue
+	html = '>' + html + '<';
+
+	//parse txt between > and < but not follow with</a
+	html = html.replace(/>([^<>]+)(?!<\/a)</g, function(match, txt) {
+
+		//now replace the txt
+		return '>' + txt.replace(regex, replace) + '<';
+	});
+
+	//remove the head > and tail <
+	return html.substring(1, html.length - 1);
+}
+
+function linkify(html,c) {
+
+	var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&amp;&@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;&@#\/%=~_|])/ig;
+	html = replaceTxtNotInA(html, exp, '<a href="$1" target="_blank" style="color:' + c + ';">$1</a>');
+
+	//URLs starting with "www."
+	var exp2 = /\b(www\.[\S]+)\b/gi;
+	html = replaceTxtNotInA(html, exp2, '<a href="http://$1" target="_blank" style="color:' + c + ';">$1</a>');
+
+	return html;
+}
+
+function linkify_01(inputText, c) {
   var replacedText, replacePattern1, replacePattern2, replacePattern3;
 
   //URLs starting with http://, https://, or ftp://
@@ -473,6 +500,12 @@ function showw() {
         }
         if (spaces[a][i].substring(0, 2) == 'ii' && spaces[a][i].length > 2) {
           spaces[a][i] = '<i>' + spaces[a][i].substring(2) + '</i>';
+        }
+        if (spaces[a][i].substring(0, 4) == '-htt') {
+          spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" target="_blank" style="color:' + oc[1] + ';">' + spaces[a][i+1] + '</a>';
+          spaces[a].splice(i+1,1)
+          i++
+          continue;
         }
       }
     }
@@ -1605,7 +1638,6 @@ function emoti(chain) {
       var a = symbols1[i];
       //var c = '<img src="' + elem + '" />';
       var c = elem;
-
       htm = replaceAll(a, c, htm);
 
     }
