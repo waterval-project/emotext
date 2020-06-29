@@ -1,211 +1,196 @@
-<!DOCTYPE html><html lang="en"><head>
-      <meta property="og:title" content="EMOTEXT / RAINBOWMASTER">
-  <meta property="og:description" content="Expressive paragraphs. Waterval-project">
-  <meta property="og:image" content="https://waterval-project.github.io/emotext/rainbowmaster01.jpg">
+<!DOCTYPE html>
+<html lang="en">
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+<head>
+  <meta property="og:title" content="RAINBOWMASTER" />
+  <meta property="og:description" content=" Emotext Viewer. Minimalist hypertext language for expressive paragraphs" />
+  <meta property="og:image" content="https://editor.p5js.org/josepssv/sketches/tFdu0o_VK/rainbowmaster01.jpg" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>-->
-
-     
-   <script src="paleta.js"></script>
-  <script src="rainbow.js"></script>
-  <script src="sketch.js"></script>
-   <script src="rainbowmaster.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8">
-
+ <!-- <script src="https://editor.p5js.org/josepssv/sketches/5hLE5Rl8n/rainbowmaster.js?1234567890"></script>-->
+  <script src="emoti.js" > </script>
+  <script src="rainbowmaster.js"></script>
+  <meta charset="utf-8" />
   <style>
+    body {
+      background-color: #000;
+      font-family: calibri;
+      //max-width:17.302cm;margin-top:1.499cm; margin-bottom:1.499cm; margin-left:3cm; margin-right:3cm;
+    }
 
+    #accion1 {
+      padding: 22px;
+      max-width: 720px;
+      margin: auto;
+      background-color: #444;
+      text-align: center;
+    }
+
+    .bloque {
+      border-radius: 12px;
+      padding: 6px;
+      text-align: center;
+    }
+
+    .dborder {
+      background: none;
+      border: 4px solid #fff;
+      max-width: 620px;
+      padding: 2em;
+      border-radius: 12px;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .dborder:before {
+      background: none;
+      border: 4px solid #fff;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      pointer-events: none;
+    }
   </style>
   <script>
+
   
+
   </script>
 </head>
 
 <body>
-  <div id="textureCanvas" style="position:absolute;top:-2999px"></div> 
- <textarea id="texto" style=" width: 50%; margin: 0 auto;  background-color: #eee; max-width: 740px;  height: 470px; padding: 18px;  display: block; margin-left: auto;  margin-right: auto;">0DD:-|
-
-l2 bb EMOTEXT: a hypertext language for expressive paragraphs using emoticons
-l2 CSS and HTML sub-language
-_ Author: Josepssv ..Waterval-project
-
-- bbKEY bbWORDS .. Hypertext, language, Internet, emoticons, paragraph, color, style, graphic design
-
-o bbABSTRACT.  This is an initial proposal for a higher-level language that simplifies CSS and HTML in order to compose expressive paragraphs. Difficulties in accessing hypertext should be reduced for the general population. The expressiveness of the emoticon associated with color is a contribution of this article.
--
-bb INTRODUCTION
-o The use of hypertext is popularized today, but only in technological environments. It is out of initial use. Hypertext should be in everyday use like writing. For example, a hyperlink must be easy to embed in a text and also all the simple ways of exposing a text. .. When writing manually, with a pencil we can do it, but when writing plain text on a computer it is more complicated, especially when we want to use color in the text and in the font. ..  Text editors make this formatting easy, which they ultimately translate into an HTML or CSS tag language. The aim of this study is to propose a language where the opening and closing labels are simplified and the expressiveness of color in the text and the format are also simple.  
-bb TAGS 
-In the first line make a background gradient in the other lines make a paragraph colored
-
-If a line have only emoticon then next paragraphs are as this color style
-
-ON THE FIRST LINE  
-
-WidthSymbol or/and brightness or/and emoticon or/and+space  phase +space numOfColors(default 100)
-
-Default (long paragraph, vivid color, phase 2, colors 32)
-
-:-(_:-) Dark to Vivid
-
-.. Short paragraph (WidthSymbol)
-
-DDDDD  brighter and brighter. Five D is White
-
-Example:
-
-..DD:-) 2 10
-
-ON THE FIRST LINE AND AT THE BEGINNING OF A LINE
-
-:-p Random
-
-:-) Vivid
-
-:-( Dark
-
-:-D Bright
-
-:-| Grey
-
-:-* Red
-
-;-) Green
-
-;-( Blue
-
-o:-) Cyan
-
-8-) Magenta
-
-xD Yellow
-
-x-( Brown
-
-|-) Dun
-
-AT THE BEGINNING OF THE LINE
-
-default (rounded div align center)
-
-0 Frameless
-
-. Frameless bold alignment center
-
-- Frameless bold  alignment left
-
-_ Frameless bold  alignment right
-
-.. Harmonic linear gradient
-
-., Random linear gradient
-
-.o Harmonic radial gradient
-
-.O Random radial gradient  
-
-.- Harmonic left to right linear gradient
-
-._  Random left to right linear gradient
-
-.t Random texture
-
-:-o Surprise
-
-:-pi Random with animated image
-
-:-)i Vivid with animated image
-
-:-(i Dark with animated image
-
-:-Di Bright with animated image
-
-:-|i Grey with animated image
-
-ihttp://......etc.jpg image
-
--http://......etc  link
-
-ahttp://..... etc image and link
-
-.t Random pixel background texture
-
--t Random pixel background Texture
-
-.t2  Two color as vertical background
-
--t2 Two color as horizontal background
-
-IN THE PARAGRAPH
-
- ..  (space + two points) New line
-
- 
-
-http://..  or www...     link
-
- 
-
-EXAMPLES
-
-____________________
-
-:-D
-
-;-) .. Green linear gradient ..Hello Word
-
-0
-
-______________________
-
-:-)
-
-;-) .o Green radial gradient
-
-Bye
-
-___________________________
-
+  <div id="accion" style="position:relative;display:none; border-radius: 12px; margin: 0 auto;background-color: #444;text-align:center;top:20px;"></div>
+ <textarea id="texto" style="position:relative;top:0px; width: 50%; margin: 0 auto;  background-color: #eee; max-width: 740px;  height: 470px; padding: 18px;  display: block; margin-left: auto;  margin-right: auto;">
+ghttps://waterval-project.com/book/plastic/pages/plastic.jpg
+f3 
+w500 h2000 m9 p8
+ODD:-|i 4 23
+X :-) .. c2 o7 w486px  .. We sketching.. .. ..   
+.t3 line -- to -- line
+line
+0 and
+ihttps://waterval-project.com/book/plastic/pages/plastic.jpg  l5c3bbword -- l4c1uuto -- l5c8iiword 
+0 l5  :-)   
+1h #999
+0 l2 bb c9 EL SALUDO
+X w94% How are you?
+0 I am fine
+.. w30% And you?
+;-)    .. 
+X .- Come on
+0    
+0h
+0    
+1h #d0d
+1
+2
+0  
+2h #0d0
+1
+2
+0   
+0h
+
+1h #d00
+0   
+hello
+   1
+   2
+   3
+   4
+2h https://waterval-project.com/book/plastic/pages/3.png 
+0 
+   world  
+   1
+   2
+   3
+   4
+3h #ff0
+0 
+   hola
+   1
+   2
+   3
+0h
+0  
+.. hello word 
+   hola mundo
+0 
+:-(
+1h #d00
+0   
+   
+hello
+   1
+   2
+   3
+   4
+2h https://waterval-project.com/book/plastic/pages/3.png 
+0 
+   world  
+   1
+   2
+   3
+   4
+3h #ff0
+   0   
+   hola
+..   1
+   2
+   3
+   
+4h #0f0
+   
+mundo
+   1
+   2
+   3
+0h
 
 </textarea>
-  <div id="accion" style=" box-shadow: inset 0px 0px 12px 3px #000;position:relative;display:none; border-radius: 12px; padding:30px; max-width: 640px; margin: 0 auto;background-color: #444;text-align:center;"></div>
+  <div id="textureCanvas" style="position:absolute;top:-2999px"></div>
  
   <div id="dconvert" style="display:none;">
     <button id="bconvert">
       SHOW
     </button>
-  </div>  
+  </div>
   <div id="logo" style="padding:40px 4px;position:absolute;left:3px;top:0px;font-size:10px;color:#777; border-right: 1px solid #777;">
-  <span id="clearbutt" style="cursor:pointer;position:relative;top:-340px;left:65px;font-size:x-large;color:#f00">X</span>
-  <img src="rainbowmaster05.png" width="50px"><br>
-   DEMOS<br><br>
-  <a href="javascript:demo(0)" style="color:#777; text-decoration:none;">:-p Random</a><br>
-  <a href="javascript:demo(1)" style="color:#777; text-decoration:none;">:-) Vivid</a><br>
-  <a href="javascript:demo(2)" style="color:#777; text-decoration:none;">:-( Dark</a><br>
-  <a href="javascript:demo(3)" style="color:#777; text-decoration:none;">:-D Bright</a><br>
-  <a href="javascript:demo(4)" style="color:#777; text-decoration:none;">:-| Grey</a><br>
-  <a href="javascript:demo(5)" style="color:#777; text-decoration:none;">:-(:-) Dark to Vivid</a><br>
-  <a href="javascript:demo(6)" style="color:#777; text-decoration:none;">:-* Red</a><br>
-  <a href="javascript:demo(7)" style="color:#777; text-decoration:none;">Images and links</a><br>
-  <br>
-  <br>
-   <a href="https://raw.githubusercontent.com/waterval-project/emotext/master/README.md" target="_blank" style="color:#777; text-decoration:none;">Readme Emotext</a><br>
-  &copy;Waterval-project <br>
-  Josepssv 2020
-  
-  
+    <span id="clearbutt" style="cursor:pointer;position:relative;top:-340px;left:65px;font-size:x-large;color:#f00">X</span><img id="rainbowmaster" src="https://i.imgur.com/TUzQeBy.png" width="50px" style="cursor:pointer;"><br>
+    <button id="copyHtmlCode" style="width:100px;font-size:10px;">CopyHtmlcode</button><br>
+    <button id="copyEmotextCode" style="width:100px;font-size:10px;">CopyEmotextcode</button>
+    <br>
+    DEMOS<br><br>
+    <a href="javascript:demo(0)" style="color:#777; text-decoration:none;">:-p Random</a><br>
+    <a href="javascript:demo(1)" style="color:#777; text-decoration:none;">:-) Vivid</a><br>
+    <a href="javascript:demo(2)" style="color:#777; text-decoration:none;">:-( Dark</a><br>
+    <a href="javascript:demo(3)" style="color:#777; text-decoration:none;">:-D Bright</a><br>
+    <a href="javascript:demo(4)" style="color:#777; text-decoration:none;">:-| Grey</a><br>
+    <a href="javascript:demo(5)" style="color:#777; text-decoration:none;">:-(:-) Dark to Vivid</a><br>
+    <a href="javascript:demo(6)" style="color:#777; text-decoration:none;">:-* Red</a><br>
+    <a href="javascript:demo(7)" style="color:#777; text-decoration:none;">Images and links</a><br>
+    <br>
+    <br>
+    <a href="https://github.com/waterval-project/emotext" target="_blank" style="color:#777; text-decoration:none;">Emotext</a><br>
+    &copy;Waterval-project <br>
+    Josepssv 2020
+
+
   </div>
   <div id="info" style="border-radius: 8px;position:absolute;top:22px;left:100px;padding:12px;display:none;background-color:#00f;color:#fff; font-weight:6700; border:4px solid #dd0;">Copied to clipboard</div>
 
+</body>
 
-
-</body></html>
+</html>
 <!--
-&copy;Waterval-project
+http://www.emoticonr.com/emoticons/
+Waterval-project.com
 https://en.wikipedia.org/wiki/List_of_emoticons
 -->
