@@ -2913,9 +2913,12 @@ $(document).ready(function() {
 
   //$(document).mouseup(function(e) {   look()  });
   $('#rainbowmaster').mouseup(function(e) {
-    //look(e)
-   // extrasave()
-   // look()
+       //e.stopPropagation()
+    writing = true
+    document.body.style.backgroundImage = '';
+    document.body.style.backgroundColor = '#000'
+    animateShow(0)
+    visual()
   });
 
   $("#accion").on("click", function (e) {
@@ -2923,7 +2926,7 @@ $(document).ready(function() {
     writing = true
     document.body.style.backgroundImage = '';
     document.body.style.backgroundColor = '#000'
-    animateShow()
+    animateShow(1)
     visual()
   });
 
@@ -2956,7 +2959,7 @@ $("#texto").bind("click",function(){
 
 })
 var stateaccion=1
-function animateShow(){
+function animateShow(modo){
 var ac = $("#accion");
 var tx = $("#texto");
 if(stateaccion==1){ 
@@ -2980,7 +2983,9 @@ tx.hide();
    $('#logo').hide() 
    showw()
    ac.css({top:20})
-   extrasave()
+   if(modo==1){
+     extrasave()
+   }
    stateaccion*=-1
   });
 
