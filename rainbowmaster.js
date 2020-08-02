@@ -598,7 +598,7 @@ var borderi = []
 borderi[0] = urlImages + 'border2.png'
 borderi[1] = urlImages + 'border2.png'
 
-
+var ground4link='https://media1.giphy.com/media/26BRyql7J3iOx875u/200.gif'
 
 
 
@@ -659,11 +659,11 @@ function replaceTxtNotInA(html, regex, replace) {
 function linkify(html, c) {
 
   var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&amp;&@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;&@#\/%=~_|])/ig;
-  html = replaceTxtNotInA(html, exp, '<a href="$1" target="_blank" style="color:' + c + ';">$1</a>');
+  html = replaceTxtNotInA(html, exp, '<a href="$1"  style="color:' + c + ';">$1</a>');
 
   //URLs starting with "www."
   var exp2 = /\b(www\.[\S]+)\b/gi;
-  html = replaceTxtNotInA(html, exp2, '<a href="http://$1" target="_blank" style="color:' + c + ';">$1</a>');
+  html = replaceTxtNotInA(html, exp2, '<a href="http://$1"  style="color:' + c + ';">$1</a>');
 
   return html;
 }
@@ -673,11 +673,11 @@ function linkify_01(inputText, c) {
 
   //URLs starting with http://, https://, or ftp://
   replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-  replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank" style="color:' + c + ';">$1</a>');
+  replacedText = inputText.replace(replacePattern1, '<a href="$1"  style="color:' + c + ';">$1</a>');
 
   //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
   replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-  replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank" style="color:' + c + ';">$2</a>');
+  replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2"  style="color:' + c + ';">$2</a>');
 
   return replacedText;
 }
@@ -765,7 +765,7 @@ function Dump() {
 
 }
 
-var bg
+var bg = [0, 0, 0]
 var emojiUsed = [{
   n: 1,
   p: 0
@@ -905,35 +905,197 @@ function mytrim(x) {
 }
 
 
+function estiliz(sp) {
+  var estilo = ''
+  if (sp.substring(0, 2) == 's1' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    estilo += 'font-size:small;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 's2' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    estilo += 'font-size:xsmall;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 's3' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    estilo += 'font-size:xx-small;'
+    sp = sp.substring(2)
+  }
+
+
+  if (sp.substring(0, 2) == 's1' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:large;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 's2' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:x-large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:xlarge;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 's3' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:xx-large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:xx-large;'
+    sp = sp.substring(2)
+  }
+
+  if (sp.substring(0, 2) == 'l1' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:large;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l2' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:x-large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:xlarge;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l3' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:xx-large;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:xx-large;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l4' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:150%;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:150%;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l5' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:300%;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:300%;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l6' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //spaces[a][i] = '<span style="font-size:300%;">' + spaces[a][i].substring(2) + '</span>';
+    estilo += 'font-size:400%;'
+    sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l7' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //sp = '<span style="font-size:500%;">' + sp.substring(2) + '</span>';
+    estilo += 'font-size:500%;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l8' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //sp = '<span style="font-size:700%;">' + sp.substring(2) + '</span>';
+    estilo += 'font-size:700%;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'l9' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //sp = '<span style="font-size:1000%;">' + sp.substring(2) + '</span>';
+    estilo += 'font-size:100%;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c+' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:#fff;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c-' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:#000;'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c0' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[0][parseInt(Math.random() * listcolor[0].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c1' && sp.length > 2 && sp.substring(0, 3) != 'c10') {
+    //sp = '<span style="color:rgb('+listcolor[1][parseInt(Math.random()*listcolor[1].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[1][parseInt(Math.random() * listcolor[1].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c2' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[2][parseInt(Math.random()*listcolor[2].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[2][parseInt(Math.random() * listcolor[2].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c3' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[3][parseInt(Math.random()*listcolor[3].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[3][parseInt(Math.random() * listcolor[3].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c4' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[4][parseInt(Math.random()*listcolor[4].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[4][parseInt(Math.random() * listcolor[4].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c5' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[5][parseInt(Math.random()*listcolor[5].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[5][parseInt(Math.random() * listcolor[5].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c6' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[6][parseInt(Math.random()*listcolor[6].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[6][parseInt(Math.random() * listcolor[6].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c7' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[7][parseInt(Math.random()*listcolor[7].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[7][parseInt(Math.random() * listcolor[7].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c8' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[8][parseInt(Math.random()*listcolor[8].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[8][parseInt(Math.random() * listcolor[8].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'c9' && sp.length > 2) {
+    //sp = '<span style="color:rgb('+listcolor[9][parseInt(Math.random()*listcolor[9].length)]+');">' + sp.substring(2) + '</span>';
+    estilo += 'color:rgb(' + listcolor[9][parseInt(Math.random() * listcolor[9].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 3) == 'c10' && sp.length > 3) {
+    //sp = '<span style="color:rgb('+listcolor[10][parseInt(Math.random()*listcolor[10].length)]+');">' + sp.substring(3) + '</span>';
+    estilo += 'color:rgb(' + listcolor[10][parseInt(Math.random() * listcolor[10].length)] + ');'
+    sp = sp.substring(2)
+  }
+  if (sp.substring(0, 2) == 'bb' && sp.length > 2) {
+    sp = '<b>' + sp.substring(2) + '</b>';
+  }
+  if (sp.substring(0, 2) == 'uu' && sp.length > 2) {
+    sp = '<u>' + sp.substring(2) + '</u>';
+  }
+  if (sp.substring(0, 2) == 'ii' && sp.length > 2) {
+    sp = '<i>' + sp.substring(2) + '</i>';
+  }
+  return [sp, estilo]
+
+}
+  
+function vea(codi){
+ $("#myModal").show()
+  console.log(codo[codi])
+  $("#textomodal").html('<span style="font-size:+10;">' + codo[codi] + '.</span> ')
+}
+  
+  
 var paleta = []
 var foto = []
 var DEFAULTimage = ''
 var DEFAULTnimage = 1
 
-
+  var codo = {}
 
 /////////////////// BUILD
 
 function showw() {
 
-    hcontain = -1
-    H = []
-    H[0] = {
-  bg: [],
-  color: [],
-  height: DEFAULTdivHeight
-}
+  hcontain = -1
+  H = []
+  H[0] = {
+    bg: [],
+    color: [],
+    height: DEFAULTdivHeight
+  }
 
   //paleta = jQuery.extend(true, {}, inipaleta);
   //$('#bconvert').html('Edit')
   //dataSesion= $('#accion').text().split("\n")
   //var r = $('#accion').text().replace('\n', '<br>');
   var r = $('#texto').val();
-  r=r.replace(/'/g, "&apos;");
+  r = r.replace(/'/g, "&apos;");
 
- 
+
   dataSesion = r.split(/\r?\n/)
-  
+
   //console.log(dataSesion.length);
   //bg = otrocolorC3()
   //doBg()
@@ -956,11 +1118,25 @@ function showw() {
     u
 
   var trs
+   codo = {}
   for (var a = 0; a < splitext.length; a++) {
     trs = mytrim(splitext[a])
     if (trs.substring(0, 2) != '//') {
       u = splitext[a].split(' ')
       spaces.push(u)
+    } else {
+      var cade = trs.substring(2)
+      var cade1 = cade.split(' ')
+      if (cade1.length > 0 && cade.length > 2) {
+        var idcade = cade1[0]
+        cade1.shift();
+
+        if (cade1 === undefined || cade1.length == 0) {} else {
+          var elcode = cade1.join(' ')
+          codo[idcade] = '<div id="' + idcade + '" style="display:block;">' + elcode + '</div>'
+          //console.log(codo[idcade])
+        }
+      }
     }
   }
   var cad = '';
@@ -978,9 +1154,9 @@ function showw() {
   var anchodiv = DEFAULTanchodiv;
   var DEFAULTanchothisdiv = '80%'
   var anchothisdiv = DEFAULTanchothisdiv
-  var DEFAULTmarginTop=0;
-  var emarginTop =0
-  var epadding =0
+  var DEFAULTmarginTop = 0;
+  var emarginTop = 0
+  var epadding = 0
 
   var DEFAUlTimagewidth = '150px'
   var imagewidth = DEFAUlTimagewidth
@@ -997,20 +1173,19 @@ function showw() {
     document.body.style.backgroundImage = ''
     document.body.style.backgroundColor = '#000'
   }
-if (spaces[0][0].substring(0, 1) == 'f') {
-    var ftrim = mytrim(spaces[0][0].substring(1,2));
-  if(parseInt(ftrim) == isNaN){
-        }else{
-          $('#accion').css('font-family', FONTfamily[ftrim])
+  if (spaces[0][0].substring(0, 1) == 'f') {
+    var ftrim = mytrim(spaces[0][0].substring(1, 2));
+    if (parseInt(ftrim) == isNaN) {} else {
+      $('#accion').css('font-family', FONTfamily[ftrim])
 
-  }
+    }
     spaces = spaces.splice(1);
-   
+
 
   } else {
-   $('#accion').css('font-family', 'arial')
+    $('#accion').css('font-family', 'arial')
 
-    
+
   }
 
   //var cambw = [0, 0]
@@ -1020,53 +1195,53 @@ if (spaces[0][0].substring(0, 1) == 'f') {
     spaces[0] = spaces[0].splice(1);
     //console.log(anchodivPage)
     //cambw[0] = 1
-    cambw=1
+    cambw = 1
   }
 
   if (spaces[0][0].substring(0, 1) == 'h') {
     altodivPage = spaces[0][0].substring(1)
-    
+
     spaces[0] = spaces[0].splice(1);
     //console.log(altodivPage)
     //cambw[1] = 1
-     cambw=2
+    cambw = 2
   }
-   //var mycadj=mytrim(spaces[0])
-        //if (spaces[0][0].substring(0, 1) == 'm') {
-    //var mj=spaces[0].join(' ')
-    //var mji=mj.indexOf('m')
-    //if(typeof morespaces[1] === 'undefined') {
-    if (spaces[0][0] != null) {
-      var mji = spaces[0][0].indexOf('m')
-     if (mji>-1) {
-             
-  // var spcw = cadjoin.indexOf(' ')
-          //var spcw1 = cadjoin.substring(1, spcw)
-          emarginTop =  spaces[0][0].substring(1)
-          //spcw1.substring(1)
-          //console.log(spaces[0][0]+' '+emarginTop)
-          //cadjoin = cadjoin.substring(spcw)
-          spaces[0] = spaces[0].splice(1);
-           cambw=3
-     }
-        }
- if (spaces[0][0] != null) {
-      var mji = spaces[0][0].indexOf('p')
-     if (mji>-1) {
-             
-  // var spcw = cadjoin.indexOf(' ')
-          //var spcw1 = cadjoin.substring(1, spcw)
-          epadding =  spaces[0][0].substring(1)
-          //spcw1.substring(1)
-          //console.log(spaces[0][0]+' '+emarginTop)
-          //cadjoin = cadjoin.substring(spcw)
-          spaces[0] = spaces[0].splice(1);
-           cambw=4
-     }
-        }
+  //var mycadj=mytrim(spaces[0])
+  //if (spaces[0][0].substring(0, 1) == 'm') {
+  //var mj=spaces[0].join(' ')
+  //var mji=mj.indexOf('m')
+  //if(typeof morespaces[1] === 'undefined') {
+  if (spaces[0][0] != null) {
+    var mji = spaces[0][0].indexOf('m')
+    if (mji > -1) {
 
-  
-  if (cambw>0) {
+      // var spcw = cadjoin.indexOf(' ')
+      //var spcw1 = cadjoin.substring(1, spcw)
+      emarginTop = spaces[0][0].substring(1)
+      //spcw1.substring(1)
+      //console.log(spaces[0][0]+' '+emarginTop)
+      //cadjoin = cadjoin.substring(spcw)
+      spaces[0] = spaces[0].splice(1);
+      cambw = 3
+    }
+  }
+  if (spaces[0][0] != null) {
+    var mji = spaces[0][0].indexOf('p')
+    if (mji > -1) {
+
+      // var spcw = cadjoin.indexOf(' ')
+      //var spcw1 = cadjoin.substring(1, spcw)
+      epadding = spaces[0][0].substring(1)
+      //spcw1.substring(1)
+      //console.log(spaces[0][0]+' '+emarginTop)
+      //cadjoin = cadjoin.substring(spcw)
+      spaces[0] = spaces[0].splice(1);
+      cambw = 4
+    }
+  }
+
+
+  if (cambw > 0) {
     spaces = spaces.splice(1);
 
   }
@@ -1084,7 +1259,7 @@ if (spaces[0][0].substring(0, 1) == 'f') {
   }
   if (spaces[0][0].substring(0, 1) == 'X') {
     DEFAULTparagraph = 0
-    spaces[0][0] =spaces[0][0].substring(1);
+    spaces[0][0] = spaces[0][0].substring(1);
   }
   if (spaces[0][0].substring(0, 1) == '0') {
     DEFAULTparagraph = -1
@@ -1193,16 +1368,25 @@ if (spaces[0][0].substring(0, 1) == 'f') {
   colorea()
 
   //console.log(spaces[0][0]+' '+anchodiv)
-  $('#accion').css('width', anchodivPage)
-  $('#accion').css('height', altodivPage)
-  foto = []
+  //$('#accion').css('width', anchodivPage)
+  //$('#accion').css('height', altodivPage)
+  $('#accion').width(anchodivPage)
+  $('#accion').height(altodivPage)
 
-  for (var a = 0; a < spaces.length; a++) {
+  foto = []
+  /////////     END HEAD
+
+  var posLine = 'relative'
+
+  for (a = 0; a < spaces.length; a++) {
+
 
     /////// INSIDE PARAGRAPH
     var oc = otrocolor(listcolor[nemoji][ccc])
     if (spaces[a].length > 1) {
       for (var i = 1; i < spaces[a].length; i++) {
+        posLine = 'relative'
+
         /*
          if( FONTmix[0].d.indexOf(spaces[a][i].substring(2))>-1){  spaces[a][i] = '<span '+FONTmix[0].r+'>' + spaces[a][i].substring(2) + '</span>'}
          if( FONTmix[1].d.indexOf(spaces[a][i].substring(2))>-1){ spaces[a][i] = '<span '+FONTmix[1].r+'>' + spaces[a][i].substring(2) + '</span>'}
@@ -1211,127 +1395,12 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         */
         var estilo = ''
 
-        if (spaces[a][i].substring(0, 2) == 'l1' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:large;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:large;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l2' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:x-large;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:xlarge;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l3' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:xx-large;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:xx-large;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l4' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:150%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:150%;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l5' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:300%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:300%;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l6' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:300%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:400%;'
-          spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l7' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:500%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:500%;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l8' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:700%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:700%;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'l9' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="font-size:1000%;">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'font-size:100%;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c+' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:#fff;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c-' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:#000;'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c0' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[0][parseInt(Math.random()*listcolor[0].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[0][parseInt(Math.random() * listcolor[0].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c1' && spaces[a][i].length > 2 && spaces[a][i].substring(0, 3) != 'c10') {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[1][parseInt(Math.random()*listcolor[1].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[1][parseInt(Math.random() * listcolor[1].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c2' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[2][parseInt(Math.random()*listcolor[2].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[2][parseInt(Math.random() * listcolor[2].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c3' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[3][parseInt(Math.random()*listcolor[3].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[3][parseInt(Math.random() * listcolor[3].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c4' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[4][parseInt(Math.random()*listcolor[4].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[4][parseInt(Math.random() * listcolor[4].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c5' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[5][parseInt(Math.random()*listcolor[5].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[5][parseInt(Math.random() * listcolor[5].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c6' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[6][parseInt(Math.random()*listcolor[6].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[6][parseInt(Math.random() * listcolor[6].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c7' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[7][parseInt(Math.random()*listcolor[7].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[7][parseInt(Math.random() * listcolor[7].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c8' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[8][parseInt(Math.random()*listcolor[8].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[8][parseInt(Math.random() * listcolor[8].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'c9' && spaces[a][i].length > 2) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[9][parseInt(Math.random()*listcolor[9].length)]+');">' + spaces[a][i].substring(2) + '</span>';
-          estilo += 'color:rgb(' + listcolor[9][parseInt(Math.random() * listcolor[9].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 3) == 'c10' && spaces[a][i].length > 3) {
-          //spaces[a][i] = '<span style="color:rgb('+listcolor[10][parseInt(Math.random()*listcolor[10].length)]+');">' + spaces[a][i].substring(3) + '</span>';
-          estilo += 'color:rgb(' + listcolor[10][parseInt(Math.random() * listcolor[10].length)] + ');'
-          spaces[a][i] = spaces[a][i].substring(2)
-        }
-        if (spaces[a][i].substring(0, 2) == 'bb' && spaces[a][i].length > 2) {
-          spaces[a][i] = '<b>' + spaces[a][i].substring(2) + '</b>';
-        }
-        if (spaces[a][i].substring(0, 2) == 'uu' && spaces[a][i].length > 2) {
-          spaces[a][i] = '<u>' + spaces[a][i].substring(2) + '</u>';
-        }
-        if (spaces[a][i].substring(0, 2) == 'ii' && spaces[a][i].length > 2) {
-          spaces[a][i] = '<i>' + spaces[a][i].substring(2) + '</i>';
-        }
+        var estz = estiliz(spaces[a][i])
+        spaces[a][i] = estz[0]
+        estilo = estz[1]
+
         if (spaces[a][i].substring(0, 4) == '-htt') {
-          spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" target="_blank" style="color:' + oc[1] + ';">' + spaces[a][i + 1] + '</a>';
+          spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '"  style="color:' + oc[1] + ';">' + spaces[a][i + 1] + '</a>';
           spaces[a].splice(i + 1, 1)
           i++
           continue;
@@ -1352,17 +1421,54 @@ if (spaces[0][0].substring(0, 1) == 'f') {
             spaces[a][i] = '<img src="' + spaces[a][i].substring(1) + '" width="180px">';
           }
         }
+        if (spaces[a][i].substring(0, 4) == 'aith') {
+          var twi = spaces[a][i + 1]
+         
+          //console.log(anchodivPage*0.95)
+          //var ocl = 'onclick="this.parentElement.style.width=' + "'" + parseInt(anchodivPage * 0.95) + "px'" + ';document.getElementById(' + "'" + spaces[a][i].substring(4) + "')" + '.style.display=' + "'block'" + '"';
+          //var ocl = 'onclick="vea(' + "'" + codo[spaces[a][i].substring(4)] + "')"+'"';
+          var ocl = 'onclick="vea(' + "'" + spaces[a][i].substring(4) + "')"+'"';
+             //console.log(ocl)
+          
+          //spaces[a][i+1] = codo[spaces[a][i].substring(4)].replace(/&apos;/g,"'")
+         //spaces[a][i + 1] = codo[spaces[a][i].substring(4)]
+          spaces[a][i + 1] = ''
+
+          spaces[a][i] = '<button ' + ocl + '   style="background-color:transparent;background-image:url( '+ground4link+');cursor:pointer;border:0;margin:0;padding:0;outline:none;border-style:solid;color:' + oc[1] + ';">' + twi +'</button>';
+          //console.log(codo[spaces[a][i].substring(4)])
+
+        }
+                if (spaces[a][i].substring(0, 4) == 'aidh') {
+          var wi = spaces[a][i + 1].split('_')
+          var wi1 = wi[0].substring(5)
+          var wi2 = spaces[a][i + 1].indexOf('_')
+          var wi3 = spaces[a][i + 1].substring(wi2 + 1)
+          //console.log(anchodivPage*0.95)
+          //var ocl = 'onclick="this.parentElement.style.width=' + "'" + parseInt(anchodivPage * 0.95) + "px'" + ';document.getElementById(' + "'" + spaces[a][i].substring(4) + "')" + '.style.display=' + "'block'" + '"';
+          //var ocl = 'onclick="vea(' + "'" + codo[spaces[a][i].substring(4)] + "')"+'"';
+          var ocl = 'onclick="vea(' + "'" + spaces[a][i].substring(4) + "')"+'"';
+             //console.log(ocl)
+          
+          //spaces[a][i+1] = codo[spaces[a][i].substring(4)].replace(/&apos;/g,"'")
+         //spaces[a][i + 1] = codo[spaces[a][i].substring(4)]
+          spaces[a][i + 1] = ''
+
+          spaces[a][i] = '<button ' + ocl + '   style="background-color:transparent;background-image:url( '+ground4link+');cursor:pointer;border:0;margin:0;padding:0;outline:none;border-style:solid;color:' + oc[1] + ';">' + '<img src="' + wi3 + '" width="' + wi1 + '" style="cursor:pointer;"></button>';
+          //console.log(codo[spaces[a][i].substring(4)])
+
+        }
+ 
         if (spaces[a][i].substring(0, 4) == 'ahtt') {
           //if(spaces[a].length>1){
-          if (spaces[a][i + 1].substring(0, 2) == 'iw') {
+          if (spaces[a][i + 1].substring(0, 2) == 'ih') {
             var wi = spaces[a][i + 1].split('_')
-            var wi1 = wi[0].substring(2)
+            var wi1 = wi[0].substring(5)
             var wi2 = spaces[a][i + 1].indexOf('_')
             var wi3 = spaces[a][i + 1].substring(wi2 + 1)
-            spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" target="_blank" style="color:' + oc[1] + ';">' + '<img src="' + wi3 + '" width="' + wi1 + '"></a>';
+            spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" style="color:' + oc[1] + ';">' + '<img src="' + wi3 + '" width="' + wi1 + '"></a>';
 
           } else {
-            spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" target="_blank" style="color:' + oc[1] + ';">' + '<img src="' + spaces[a][i + 1].substring(0) + '" width="180px"></a>';
+            spaces[a][i] = '<a href="' + spaces[a][i].substring(1) + '" style="color:' + oc[1] + ';">' + '<img src="' + spaces[a][i + 1].substring(0) + '" width="180px"></a>';
           }
           spaces[a].splice(i + 1, 1)
           i++
@@ -1383,17 +1489,17 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         var lo = spaces[a][0].indexOf('h')
         if (t.length == lo + 1) {
           hcontain = parseInt(spaces[a][0].substring(0, 1))
-          if (hcontain != 0 && hcontain>0) {
+          if (hcontain != 0 && hcontain > 0) {
             H[hcontain] = ''
             if (spaces[a][1].substring(0, 2) == 'ht') {
               H[0].bg[hcontain] = spaces[a][1]
               H[0].color[hcontain] = '#000'
-               
+
             }
             if (spaces[a][1].substring(0, 1) == '#') {
               H[0].color[hcontain] = spaces[a][1]
               H[0].bg[hcontain] = ''
-             
+
             }
           }
           //spaces[a][0]=spaces[a][0].substring(2)
@@ -1405,7 +1511,25 @@ if (spaces[0][0].substring(0, 1) == 'f') {
           continue
         }
       }
-
+      tag = ['', '', '']
+      var alinky = false
+      var posLinen = {
+        x: 0,
+        y: 0
+      }
+      if (spaces[a][0].substring(0, 1) == 'x') {
+        //posLine='absolute'
+        var posliney = spaces[a][0].indexOf('y')
+        posLinen.x = spaces[a][0].substring(1, posliney)
+        posLinen.y = spaces[a][0].substring(posliney + 1)
+        //tag[2]='position:absolute;left:'+px+'px; top:'+py+'px;'
+        spaces[a] = spaces[a].splice(1)
+        alinky = true
+        //oc = otrocolor
+        // alert(tag[2])
+      } else {
+        tag[2] = 'display: inline-block;'
+      }
       var ht = spaces[a][0].substring(0, 4)
       //alert(ht+'_')
       if (ht == 'ihtt' && spaces[a].length > 1) {
@@ -1439,7 +1563,7 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         if (ht == 'ahtt') {
           //console.log(spaces[a])
           spaces[a][0] = spaces[a][0].substring(1);
-          ahtt = '<a href="' + spaces[a][1] + '" target="_blank">' + '<img src="' + spaces[a][0] + '" width="200px"/></a>';
+          ahtt = '<a href="' + spaces[a][1] + '" >' + '<img src="' + spaces[a][0] + '" width="200px"/></a>';
 
         }
 
@@ -1454,10 +1578,10 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         cad += '<div style="' + tag[2] + 'border-radius: 12px; display: inline-block;padding:3px;margin:6px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchodiv + ';">'
 
         if (ht == 'http') {
-          cad += '<a href="' + spaces[a][0] + '" target="_blank" style="color:' + oc[1] + ';">' + spaces[a][0] + '</a> ' + noprime.join(' ') + '';
+          cad += '<a href="' + spaces[a][0] + '"  style="color:' + oc[1] + ';">' + spaces[a][0] + '</a> ' + noprime.join(' ') + '';
         }
         if (ht == '-htt') {
-          cad += '<a href="' + spaces[a][0] + '" target="_blank" style="color:' + oc[1] + ';">' + noprime.join(' ') + '</a>';
+          cad += '<a href="' + spaces[a][0] + '"  style="color:' + oc[1] + ';">' + noprime.join(' ') + '</a>';
         }
         if (ht == 'ihtt') {
           cad += '<img src="' + spaces[a][0] + '" width="200px"/>'
@@ -1484,11 +1608,31 @@ if (spaces[0][0].substring(0, 1) == 'f') {
 
         //var ht=spaces[a][0].substring(0,4)
         //alert(ht+'_')
-        var oc = otrocolor(listcolor[nemoji][ccc])
+        oc = otrocolor(listcolor[nemoji][ccc])
 
-        var tag = ['', '', '']
+        //tag = ['', '', '']
 
         ////////////////   SPECIAL
+
+
+        if (alinky) {
+          posLine = 'absolute'
+        } else {
+          posLinen = {
+            x: 0,
+            y: 0
+          };
+          posLine = 'relative'
+        }
+        if (spaces[a][0].substring(0, 1) == 'x') {
+          posLine = 'absolute'
+          var posliney = spaces[a][0].indexOf('y')
+          posLinen.x = spaces[a][0].substring(1, posliney)
+          posLinen.y = spaces[a][0].substring(posliney + 1)
+
+          spaces[a] = spaces[a].splice(1)
+          //oc = otrocolor
+        }
 
         if (spaces[a][0] == ':-d') {
           spaces[a] = spaces[a].splice(1)
@@ -2134,18 +2278,18 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         var esm = esmayuscula(spaces[a].join(' '))
         var tag = ['', '', '']
 
-        
-        
+
+
         if (esm && vacio != 0) {
           //tag = ['<h4>', '</h4>', 'border: 4px solid #fff;']
         }
 
         if (radioParagraph == -1) {
           radioParagraph = 0
-        } 
-      if (DEFAULTparagraph == 0) {
+        }
+        if (DEFAULTparagraph == 0) {
           radioParagraph = 0
-        } 
+        }
         if (vacio == 0) {
           oc = ['transparent', bg[1]]
           radioParagraph = 12
@@ -2328,7 +2472,7 @@ if (spaces[0][0].substring(0, 1) == 'f') {
 
           }
         }
-       
+
         /////////////// TEXT COLOR
         //if (typeof spaces[a][0] === 'undefined') {} else {
         //var ptlog = spaces[a][0].indexOf('c1')
@@ -2387,8 +2531,8 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         }
         /////////
 
-          /////////////// OPACITY
-        var opac=1
+        /////////////// OPACITY
+        var opac = 1
         if (cadjoin.substring(0, 2) == 'o1') {
           opac = 0.1
           cadjoin = cadjoin.substring(3)
@@ -2429,10 +2573,9 @@ if (spaces[0][0].substring(0, 1) == 'f') {
           opac = 1
           cadjoin = cadjoin.substring(3)
         }
-        
-        
-        if (cadjoin.substring(0, 1) == 'w') {
 
+
+        if (cadjoin.substring(0, 1) == 'w') {
           var spcw = cadjoin.indexOf(' ')
           var spcw1 = cadjoin.substring(0, spcw)
           //var spcw2=mytrim(spcw1)
@@ -2442,34 +2585,173 @@ if (spaces[0][0].substring(0, 1) == 'f') {
           //anchodiv = spcw3 + '%'
           //}
           //console.log('w:'+anchodiv)
-          cadjoin = cadjoin.substring(spcw)
+          cadjoin = cadjoin.substring(spcw + 1)
         }
-
-
-
-        ////
 
         thsline = linkify(cadjoin, oc[1])
         thsline = emoti(thsline)
-        var tsl=thsline.split(' -- ')
-        var tsl1=''
-        if(tsl.length>1){
-         tsl1='<table border="0px" width="100%"><tr>'
-           for(var ntsl=0; ntsl<tsl.length;ntsl++){
-              tsl1+='<td valign="top">'+tsl[ntsl]+'</td>'
-           }
-          tsl1+='</tr></table>'
-          thsline=tsl1
+
+
+
+
+        /////    TABLE
+        var prethisdiv = true
+        var posthisdiv = true
+        var istable = false
+        var tsl = thsline.split(' --')
+
+        if (tsl.length > 1) {
+          istable = true
+          var ttb = 0
+          var ttis = false
+          if (thsline.substring(0, 2) == 'tt') {
+            ttis = true
+            var ttag = thsline.split(' ')
+            // 
+            var ttb1 = ttag[0].split('b')
+            ttb = ttb1[1]
+          }
+          var npret = 0
+          var npost = 0
+          var pret = ''
+          var post = ''
+          if (a > 1) {
+            var tsl0 = spaces[a - 1].join(' ').split(' --')
+            if (tsl.length == tsl0.length) {
+              npret = 1
+            } else {
+              npret = 0
+
+            }
+
+          }
+          if (a < spaces.length - 2) {
+            var tsl2 = spaces[a + 1].join(' ').split(' --')
+            if (tsl.length == tsl2.length) {
+              npost = 1
+            } else {
+              npost = 0
+
+
+            }
+          }
+          if (npret == 1 && npost == 0) {
+            pret = ''
+            post = '</table>'
+          }
+          if (npret == 0 && npost == 1) {
+            pret = '<table cellspacing="4px" cellpadding="4px" border="' + ttb + 'px" width="100%" style="border-spacing: 0px; border-radius:' + radioParagraph + 'px; -moz-border-radius:' + radioParagraph + 'px;padding:0; margin:0;' + imgg + '">'
+            post = ''
+            imgg = ''
+          }
+          if (npret == 1 && npost == 1) {
+            pret = ''
+            post = ''
+          }
+          if (npret == 0 && npost == 0) {
+            pret = '<table cellspacing="0px" cellpadding="4px" border="' + ttb + 'px" width="100%" style="border-spacing: 0px; border-radius:' + radioParagraph + 'px;  -moz-border-radius:' + radioParagraph + 'px; padding:0; margin:0;' + imgg + '">'
+            post = '</table>'
+            imgg = ''
+          }
+
+          var tsl1 = pret + '<tr>'
+          for (var ntsl = 0; ntsl < tsl.length; ntsl++) {
+            if (ntsl == 0) {
+              if (ttis) {
+                tsl[ntsl] = tsl[ntsl].substr(tsl[ntsl].indexOf(' ') + 1);
+              }
+            }
+            tsl1 += '<td valign="top">' + tsl[ntsl] + '</td>'
+          }
+          tsl1 += '</tr>' + post
+
+          thsline = tsl1
+          if (npret == 1 && npost == 0) {
+            prethisdiv = false
+            posthisdiv = true
+          }
+          if (npret == 0 && npost == 1) {
+            prethisdiv = true
+            posthisdiv = false
+          }
+          if (npret == 1 && npost == 1) {
+            cad += thsline;
+            continue;
+          }
+          if (npret == 0 && npost == 0) {
+            prethisdiv = true
+            posthisdiv = true
+          }
+
         }
+        ///////////////// BR
+
+        ////
+
+
+        var ts2 = thsline.split(' ..')
+        var ts21 = ''
+        if (ts2.length > 1) {
+          //console.log(ts2)
+          //ts21='<br>'
+          var styts = ''
+          for (var nt2l = 0; nt2l < ts2.length; nt2l++) {
+
+            /*if(ts2[nt2l].substring(0,2) == 'bb'){
+              console.log('bb')
+              styts += 'font-weight:bold;'
+              ts2[nt2l] = ts2[nt2l].substring(3)
+            }
+            ts21+='<br><span style="'+styts+'">'+ts2[nt2l]+'</span>'
+            */
+            var esti = estiliz(ts2[nt2l])
+            if (istable) {
+              if (posthisdiv && nt2l == ts2.length - 1) {
+                ts21 += esti[0] + ''
+              } else {
+                ts21 += '<span style="' + esti[1] + '">' + esti[0] + '</span>'
+                ts21 += '<br>'
+              }
+            } else {
+              ts21 += '<span style="' + esti[1] + '">' + esti[0] + '</span>'
+              ts21 += '<br>'
+            }
+            styts = ''
+          }
+          //ts21+='</tr></table>'
+          thsline = ts21
+        }
+
+
+
+
         //oc[1]=contrastext([myvivid.r1[0],myvivid.g1[0],myvivid.b1[0]])
         //imgg = 'background-size:cover; background-image:url(' + foto[a] + ');'
 
-        
+
         //-->class="bloque"
         //cad+=tag[0]+'<div class="'+tag[2]+'" style=" border-radius: 12px;padding:6px;text-align:center;'+imgg+'background-color:'+oc[0]+'; color:'+oc[1]+';width:700px;">'+spaces[a].join(' ') +'&nbsp;</div>'+tag[1]+'<div style= "margin:5px;"></div>';//splitext[a].split(' ')
+        if (posLine == 'absolute') {
+          tag[2] += 'position:absolute;left:' + posLinen.x + 'px;top:' + posLinen.y + 'px;'
+        } else {
+          tag[2] += 'display: inline-block;'
+        }
         if (hcontain == -1) {
-          
-          cad += tag[0] + '<div style="' + tag[2] + 'padding:'+epadding+'px;border-radius:' + radioParagraph + 'px;display: inline-block; margin: 0 auto; margin-top:'+emarginTop+'px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchothisdiv + ';opacity:'+opac+';overflow-wrap: break-word;">' + thsline + '</div>' + tag[1] + '';
+          var prethis = ''
+          var posthis = ''
+          if (prethisdiv) {
+            var epad = epadding;
+            if (istable) {
+              epad = 0
+            }
+
+            prethis = tag[0] + '<div style="' + tag[2] + 'padding:' + epad + 'px;border-radius:' + radioParagraph + 'px; margin: 0 auto; margin-top:' + emarginTop + 'px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchothisdiv + ';opacity:' + opac + ';overflow-wrap: break-word;">'
+          }
+          if (posthisdiv) {
+            posthis = '</div>' + tag[1] + '';
+          }
+
+          cad += prethis + thsline + posthis
         } else {
           if (hcontain == 0) {
             var nHdivs = H.length - 1
@@ -2479,15 +2761,29 @@ if (spaces[0][0].substring(0, 1) == 'f') {
             cad += '<div style="margin:0px;background-color:#f00;display:table;width:' + anchodivPage + ';">'
             for (var n = 1; n < H.length; n++) {
               //cad += '<div style="float:left;width:' + percent + '; height:600px;background-size:100% 100%; background-image:url( ' + H[0].bg[n] + ' );background-color:' + H[0].color[n] + ';">' + H[n] + '</div>'
-              cad += '<div style="float:left;width:' + percent + ';'+ H[0].height+' background-size:100% 100%; padding:0; background-image:url( ' + H[0].bg[n] + ' );background-color:' + H[0].color[n] + ';">' + H[n] + '</div>'
-            
+              cad += '<div style="float:left;width:' + percent + ';' + H[0].height + ' background-size:100% 100%; padding:0; background-image:url( ' + H[0].bg[n] + ' );background-color:' + H[0].color[n] + ';">' + H[n] + '</div>'
+
             }
             cad += '</div><br style="clear:both;">'
-           
+
             hcontain = -1
-            
+
           } else {
-            var tira = tag[0] + '<div style="' + tag[2] + 'border-radius:' + radioParagraph + 'px;display: inline-block;padding:'+epadding+'px;margin:0 auto;margin-top:'+emarginTop+'px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchothisdiv + ';opacity:'+opac+';overflow-wrap: break-word;">' + thsline + '</div>' + tag[1] + '';
+            var prethis = ''
+            var posthis = ''
+            if (prethisdiv) {
+              var epad = epadding;
+              if (istable) {
+                epad = 0
+              }
+              prethis = tag[0] + '<div style="' + tag[2] + 'border-radius:' + radioParagraph + 'px;padding:' + epadding + 'px;margin:0 auto;margin-top:' + emarginTop + 'px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchothisdiv + ';opacity:' + opac + ';overflow-wrap: break-word;">'
+            }
+            if (posthisdiv) {
+              posthis = '</div>' + tag[1] + '';
+            }
+            var tira = prethis + thsline + posthis
+
+            //var tira = tag[0] + '<div style="' + tag[2] + 'border-radius:' + radioParagraph + 'px;display: inline-block;padding:' + epadding + 'px;margin:0 auto;margin-top:' + emarginTop + 'px;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:' + anchothisdiv + ';opacity:' + opac + ';overflow-wrap: break-word;">' + thsline + '</div>' + tag[1] + '';
 
             H[hcontain] += tira;
             //console.log(H[hcontain])
@@ -2496,6 +2792,7 @@ if (spaces[0][0].substring(0, 1) == 'f') {
         anchodiv = DEFAULTanchodiv
         anchothisdiv = DEFAULTanchothisdiv
         imagewidth = DEFAUlTimagewidth
+
         //radioParagraph = DEFAULTparagraph
         /* -->
        //cad += tag[0] + '<div style="display:table; border-spacing: 5px; ' + tag[2] + 'border-radius: 12px;padding:8px 28px;margin:5px;text-align:center;' + imgg + 'background-color:' + oc[0] + '; color:' + oc[1] + ';width:'+anchodivpercent+';"><div style=" display: table-row; width: auto; clear: both;">'
@@ -2524,6 +2821,10 @@ if (spaces[0][0].substring(0, 1) == 'f') {
   //$('#lista').html(cad+'<br>'+fr)
 
   //$('#accion').html(cad + '<br><a href="https://waterval-project.github.io/emotext/" target="_blank" style="color:' + listcolor[nemoji][0] + 'font-family:Helvetica;font-size:x-small;" >Emotext</a>')
+  //var codio=''
+  //for (var [key, value] of Object.entries(codo)) {
+  // codio+= value
+  //}
   $('#accion').html(cad + '<br>')
   extra()
   //alert(cad)
@@ -2545,6 +2846,7 @@ $.fn.arrtext = function(text) {
 
 function liness() {
   $('#logo').show()
+  $('#texto').show()
   //$("#accion").multiline('$('#accion').text()');
 
 }
@@ -2797,10 +3099,10 @@ function visual() {
   //$('#accion').select()
   //document.execCommand('copy')
   //$('#accion').hide()
-  $('#texto').show();
+  //$('#texto').show();
   liness();
   document.body.style.backgroundColor = '#000'
-
+  extraShow()
   //mode *= -1
 }
 
@@ -2848,7 +3150,7 @@ function visual02() {
 function look() {
   //extrasave()
   var container = $("#texto");
-  
+
   // if the target of the click isn't the container nor a descendant of the container
   // if (!container.is(e.target) && container.has(e.target).length === 0) {
   var container1 = $("a");
@@ -2860,6 +3162,7 @@ function look() {
   //$('#accion').show()
 
   showw()
+  extraShow()
   //-->visual02()
   //writing = false
 
@@ -2883,6 +3186,7 @@ function look_01(e) {
         $('#accion').show()
 
         showw()
+        extraShow()
         visual02()
         //writing = false
 
@@ -2898,11 +3202,36 @@ var currentMousePos = {
   y: -1
 };
 
+function pen() {
+  writing = true
+  document.body.style.backgroundImage = '';
+  document.body.style.backgroundColor = '#000'
+  animateShow(1)
+  visual()
+}
+
 $(document).ready(function() {
-   $('#texto').hide() 
-  $('#logo').hide() 
+  var style = '<style> button:hover{cursor:pointer;} .modal { display: none; position: fixed;z-index: 1;padding-top: 20px;left: 0;top:0;width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);} .modal-content { background-color: rgba(0,0,0,0.4); text-align:center; margin: auto;  padding: 20px;  border: 0px solid #888;  width: 80%; } .close { color: #aaaaaa; float: right;  font-size: 28px;font-weight: bold;} .close:hover,.close:focus { color: #000; text-decoration:none;cursor: pointer;} </style>'
+  $('html > head').append(style);
+  var mody = '<div id="myModal" class="modal"><div class="modal-content"><span class="close">Ã—</span><div id="textomodal"></div></div></div>'
+  $('body').append(mody);
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+
+  $('#texto').hide()
+  $('#logo').hide()
+
   initextra()
-  
+
   paleta = JSON.parse(JSON.stringify(inipaleta));
   colorea()
 
@@ -2913,7 +3242,7 @@ $(document).ready(function() {
 
   //$(document).mouseup(function(e) {   look()  });
   $('#rainbowmaster').mouseup(function(e) {
-       //e.stopPropagation()
+    //e.stopPropagation()
     writing = true
     document.body.style.backgroundImage = '';
     document.body.style.backgroundColor = '#000'
@@ -2921,13 +3250,10 @@ $(document).ready(function() {
     visual()
   });
 
-  $("#accion").on("click", function (e) {
-     //e.stopPropagation()
-    writing = true
-    document.body.style.backgroundImage = '';
-    document.body.style.backgroundColor = '#000'
-    animateShow(1)
-    visual()
+  $('#pen').on("click", function(e) {
+    //$("#accion").on("click", function(e) {
+    //e.stopPropagation()
+    pen()
   });
 
   $('#clearbutt').click(function() {
@@ -2948,51 +3274,74 @@ $(document).ready(function() {
     currentMousePos.y = event.pageY;
   });
 
-$("#texto").bind("click",function(){
-    
+  $("#texto").bind("click", function() {
+
     showw()
-   document.body.style.backgroundImage = '';
-   document.body.style.backgroundColor = '#000'
-});
-  
+    extraShow()
+    document.body.style.backgroundImage = '';
+    document.body.style.backgroundColor = '#000'
+
+  });
+
   //separa()
+  //$("button").hover(function() {   $(this).css("cursor", "pointer"); });
 
 })
-var stateaccion=1
-function animateShow(modo){
-var ac = $("#accion");
-var tx = $("#texto");
-if(stateaccion==1){ 
+var stateaccion = 1
 
-   tx.css({top:-(ac.height()),'z-index':0}) 
-  //ac.css({top:0,'z-index':300,transform: 'scale(.5)'})
-ac.css({top:0,'z-index':300})
-     .animate({top:(tx.height()+80)}, 1200, function() {
-    
-    //callback
-//ac.stop().animate({top:-230}, 1000, 'swing', function() { 
-stateaccion*=-1
-  });
-}else{
- 
-tx.hide();
-  tx.css({'z-index':0})
- ac.css({top:tx.height(),'z-index':300})
-.animate({top:20}, 1200, function() {
-   tx.hide();
-   $('#logo').hide() 
-   showw()
-   ac.css({top:20})
-   if(modo==1){
-     extrasave()
-   }
-   stateaccion*=-1
-  });
+function animateShow(modo) {
+  var ac = $("#accion");
+  var tx = $("#texto");
+  if (stateaccion == 1) {
+
+    tx.css({
+      top: -(ac.height()),
+      'z-index': 0
+    })
+    //ac.css({top:0,'z-index':300,transform: 'scale(.5)'})
+    ac.css({
+        top: 0,
+        'z-index': 300
+      })
+      .animate({
+        top: (tx.height() + 80)
+      }, 1200, function() {
+
+        //callback
+        //ac.stop().animate({top:-230}, 1000, 'swing', function() { 
+        stateaccion *= -1
+        extraDown()
+      });
+  } else {
+
+    tx.hide();
+    tx.css({
+      'z-index': 0
+    })
+    ac.css({
+        top: tx.height(),
+        'z-index': 300
+      })
+      .animate({
+        top: 20
+      }, 1200, function() {
+        tx.hide();
+        $('#logo').hide()
+        showw()
+        extraShow()
+        ac.css({
+          top: 20
+        })
+        if (modo == 1) {
+          extrasave()
+        }
+        stateaccion *= -1
+      });
 
 
+  }
 }
-}
-  
+
 function emoti(chain) {
   var htm = chain;
   for (i = 0; i < symbols1.length; i++) {
