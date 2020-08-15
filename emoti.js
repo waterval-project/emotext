@@ -28,7 +28,12 @@ DEFAULTdivHeight=''; //height:200px;
 
 function extrasave(){
 }
-
+function extraShow(){
+  //console.log('show')
+}
+function extraDown(){
+       $("#pen").html('&#128190;')
+}
 function initextra(){
   var container = $("#texto");
 	container.hide();
